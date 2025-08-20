@@ -1,0 +1,40 @@
+# IDEAファイル
+.idea/
+
+# Claude設定ファイル
+.claude/
+
+# 一時ファイル
+temp/
+
+# OS生成ファイル
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ログファイル
+*.log
+
+# 依存関係ディレクトリ
+node_modules/
+vendor/
+
+# ビルド出力
+dist/
+build/
+out/
+
+# 環境変数ファイル
+.env
+.env.local
+.env.*.local
+
+# エディタ設定
+.vscode/
+*.swp
+*.swo
+*~
