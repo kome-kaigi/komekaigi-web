@@ -82,11 +82,8 @@
         
         // エラー処理
         if (shouldRetry) {
-            console.error(`Failed to load sponsors (attempt ${retryCount + 1}): ${errorMessage}`);
-            
             // リトライ処理
             if (retryCount < CONFIG.API.RETRY_COUNT - 1) {
-                console.log(`Retrying in ${CONFIG.API.RETRY_DELAY}ms...`);
                 setTimeout(() => loadSponsors(retryCount + 1), CONFIG.API.RETRY_DELAY);
             } else {
                 // リトライ回数超過時のフォールバック表示
@@ -191,10 +188,7 @@ function filterValidSponsors(sponsors) {
     return sponsors.filter(sponsor => {
         // ロゴとPR文の両方が必要
         const hasLogo = sponsor.avatar || sponsor.logo;
-        const hasValidPR = sponsor.pr && 
-                          sponsor.pr !== '-' && 
-                          sponsor.pr !== '' && 
-                          sponsor.pr.length > CONFIG.CONTENT.MIN_PR_LENGTH;
+        const hasValidPR = sponsor.pr && sponsor.pr.length >= CONFIG.CONTENT.MIN_PR_LENGTH;
         return hasLogo && hasValidPR;
     });
 }
@@ -230,8 +224,6 @@ function renderSponsors(sponsorsByType) {
  * @returns {string} HTML文字列
  */
 function renderSponsorSection(type, config, sponsors) {
-    const labelClass = type === 'silver' ? 'sponsor-type-label-small' : 'sponsor-type-label-large';
-    
     const cards = sponsors
         .map(sponsor => createSponsorCard(sponsor, type))
         .filter(card => card !== null)
@@ -243,10 +235,9 @@ function renderSponsorSection(type, config, sponsors) {
         <div class="sponsor-section-${type}">
             <div class="container mx-auto px-4${type !== 'silver' ? ' max-w-6xl' : ''}">
                 <div class="text-center mb-8">
-                    <div class="sponsor-type-label ${labelClass}">
-                        ${config.label}
-                        <span class="sponsor-type-label-jp">${config.labelJp}</span>
-                    </div>
+                    <h4 class="text-2xl font-semibold text-[#fabe00]">
+                        ${config.labelJp}
+                    </h4>
                 </div>
                 <div class="sponsor-cards-container sponsor-cards-${type}">
                     ${cards.join('')}
@@ -271,7 +262,7 @@ function createSponsorCard(sponsor, type) {
     if (!logoUrl) {
         return null;
     }
-    
+
     // カードのサイズはCSSクラスで制御
     
     return `
@@ -345,7 +336,6 @@ function renderModalLogo(element, sponsor) {
  * @param {Object} sponsor - スポンサー情報
  */
 function renderModalInfo(element, sponsor) {
-    const badge = getSponsorBadge(sponsor.sponsorType);
     const links = getSponsorLinks(sponsor);
     
     element.innerHTML = `
@@ -353,7 +343,6 @@ function renderModalInfo(element, sponsor) {
             <div style="flex: 1;">
                 <h4 style="margin-bottom: 1.5rem;">
                     ${sponsor.name}
-                    <span class="sponsor-badge ${badge.class}">${badge.text}</span>
                 </h4>
                 ${sponsor.pr && sponsor.pr !== '-' ? `
                     <div>
@@ -370,20 +359,6 @@ function renderModalInfo(element, sponsor) {
             ` : ''}
         </div>
     `;
-}
-
-/**
- * スポンサーバッジ情報を取得
- * @param {string} type - スポンサータイプ
- * @returns {Object} バッジ情報
- */
-function getSponsorBadge(type) {
-    const badges = {
-        gold: { class: 'sponsor-badge-gold', text: 'GOLD' },
-        silver: { class: 'sponsor-badge-silver', text: 'SILVER' },
-        venue: { class: 'sponsor-badge-venue', text: 'VENUE' }
-    };
-    return badges[type] || { class: '', text: '' };
 }
 
 /**

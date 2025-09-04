@@ -118,65 +118,6 @@
     position: relative;
 }
 
-/* スポンサータイプラベル */
-.sponsor-type-label {
-    font-size: var(--text-5xl);
-    font-weight: var(--font-bold);
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-xl);
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    display: inline-block;
-    position: relative;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.sponsor-type-label::after {
-    content: '';
-    position: absolute;
-    bottom: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: #fabe00;
-    border-radius: 2px;
-}
-
-.sponsor-type-label-jp {
-    font-size: 1.2rem;
-    display: block;
-    margin-top: 0.8rem;
-    font-weight: normal;
-    letter-spacing: 0.08em;
-    color: #8b7355;
-    text-transform: none;
-}
-
-/* GOLDとVENUEは大きく */
-.sponsor-type-label-large {
-    font-size: 3rem;
-}
-
-.sponsor-type-label-large .sponsor-type-label-jp {
-    font-size: 1.2rem;
-}
-
-/* SILVERは小さく */
-.sponsor-type-label-small {
-    font-size: 2.2rem;
-}
-
-.sponsor-type-label-small .sponsor-type-label-jp {
-    font-size: 1rem;
-}
-
-.sponsor-type-label-small::after {
-    width: 60px;
-    height: 3px;
-    bottom: -10px;
-}
-
 /* ==========================================
    スポンサーカードコンテナ
    ========================================== */
@@ -359,31 +300,6 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-}
-
-/* スポンサーバッジ */
-.sponsor-badge {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
-    font-size: 0.75rem;
-    font-weight: 500;
-    text-transform: uppercase;
-}
-
-.sponsor-badge-gold {
-    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-    color: white;
-}
-
-.sponsor-badge-silver {
-    background: linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 100%);
-    color: white;
-}
-
-.sponsor-badge-venue {
-    background: linear-gradient(135deg, #4a90e2 0%, #7bb3f0 100%);
-    color: white;
 }
 
 /* レスポンシブ対応 */
