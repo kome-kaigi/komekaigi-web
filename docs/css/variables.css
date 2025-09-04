@@ -1,0 +1,163 @@
+/* ==========================================
+   KomeKaigi CSS Variables
+   デザインシステムの基盤となる変数定義
+   ========================================== */
+
+:root {
+  /* ==========================================
+     カラーパレット
+     ========================================== */
+  
+  /* プライマリカラー */
+  --color-primary: #fabe00;
+  --color-primary-light: #ffed4e;
+  --color-primary-dark: #e6ab00;
+  --color-primary-rgb: 250, 190, 0;
+  
+  /* セカンダリカラー */
+  --color-secondary: #2A2E35;
+  --color-secondary-light: #374151;
+  --color-secondary-dark: #1a1d22;
+  
+  /* グレースケール */
+  --color-white: #ffffff;
+  --color-gray-50: #fafafa;
+  --color-gray-100: #f5f5f5;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  --color-black: #000000;
+  
+  /* 背景色 */
+  --bg-primary: var(--color-white);
+  --bg-secondary: var(--color-gray-50);
+  --bg-amber-light: #fffbeb;
+  --bg-amber-50: #fef3c7;
+  
+  /* ==========================================
+     スペーシング
+     ========================================== */
+  --spacing-xs: 0.25rem;  /* 4px */
+  --spacing-sm: 0.5rem;   /* 8px */
+  --spacing-md: 1rem;     /* 16px */
+  --spacing-lg: 1.5rem;   /* 24px */
+  --spacing-xl: 2rem;     /* 32px */
+  --spacing-2xl: 3rem;    /* 48px */
+  --spacing-3xl: 4rem;    /* 64px */
+  
+  /* ==========================================
+     タイポグラフィ
+     ========================================== */
+  --font-primary: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-heading: 'Merriweather', Georgia, 'Times New Roman', serif;
+  
+  /* フォントサイズ */
+  --text-xs: 0.75rem;     /* 12px */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg: 1.125rem;    /* 18px */
+  --text-xl: 1.25rem;     /* 20px */
+  --text-2xl: 1.5rem;     /* 24px */
+  --text-3xl: 1.875rem;   /* 30px */
+  --text-4xl: 2.25rem;    /* 36px */
+  --text-5xl: 3rem;       /* 48px */
+  
+  /* 行間 */
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+  
+  /* フォントウェイト */
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  
+  /* ==========================================
+     ボーダー
+     ========================================== */
+  --border-width: 1px;
+  --border-width-2: 2px;
+  --border-width-4: 4px;
+  
+  --border-radius-sm: 0.25rem;   /* 4px */
+  --border-radius-md: 0.5rem;    /* 8px */
+  --border-radius-lg: 0.75rem;   /* 12px */
+  --border-radius-xl: 1rem;      /* 16px */
+  --border-radius-full: 9999px;
+  
+  /* ==========================================
+     シャドウ
+     ========================================== */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 12px 40px rgba(0, 0, 0, 0.15);
+  --shadow-2xl: 0 24px 48px rgba(0, 0, 0, 0.18);
+  
+  --shadow-primary: 0 4px 12px rgba(var(--color-primary-rgb), 0.3);
+  
+  /* ==========================================
+     アニメーション
+     ========================================== */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.2s ease;
+  --transition-slow: 0.3s ease;
+  --transition-slower: 0.5s ease;
+  
+  /* ==========================================
+     z-index
+     ========================================== */
+  --z-base: 0;
+  --z-above: 1;
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-fixed: 30;
+  --z-modal-backdrop: 40;
+  --z-modal: 50;
+  --z-popover: 60;
+  --z-tooltip: 70;
+  --z-notification: 80;
+  
+  /* ==========================================
+     ブレークポイント（JSでも利用）
+     ========================================== */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+  
+  /* ==========================================
+     コンテナ
+     ========================================== */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+  
+  /* ==========================================
+     画像処理用定数
+     ========================================== */
+  --image-border-fix-size: 4px;  /* 黒枠を隠すための拡大サイズ */
+  --image-border-fix-offset: -2px;  /* 中央配置のためのオフセット */
+  
+  /* ==========================================
+     スポンサー関連のサイズ
+     ========================================== */
+  --sponsor-modal-logo-size: 250px;
+  --sponsor-modal-logo-wrapper-width: 300px;
+  --sponsor-card-gold-width: 280px;
+  --sponsor-card-silver-width: 220px;
+  --sponsor-card-venue-width: 280px;
+  --sponsor-container-gold-max: 1000px;
+  --sponsor-container-silver-max: 900px;
+  --sponsor-container-venue-max: 700px;
+}
