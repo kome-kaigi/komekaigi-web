@@ -250,6 +250,7 @@
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    background: var(--color-gray-50);
 }
 
 /* モーダルロゴエリア */
@@ -260,7 +261,7 @@
     align-items: center;
     justify-content: center;
     padding: 0;
-    background: var(--color-gray-50);
+    background: var(--color-white);
     border-right: var(--border-width) solid var(--color-gray-200);
     overflow: hidden;
 }
@@ -279,7 +280,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--color-white);
+    /* 背景は親要素の白背景を継承 */
     border-radius: var(--border-radius-md);
 }
 
