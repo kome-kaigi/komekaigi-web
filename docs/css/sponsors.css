@@ -91,7 +91,7 @@
     background: var(--color-white); /* 背景を明示的に白に設定 */
     width: 100%;
     height: 100%;
-    padding: 0; /* パディングを削除してカード目一杯に表示 */
+    padding: 8px; /* カードとロゴ画像の間に4pxの余白 */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -104,6 +104,8 @@
     object-fit: contain; /* アスペクト比を保持してロゴを表示 */
     position: relative;
     z-index: 1;
+    max-width: calc(100% - 16px); /* paddingを考慮した幅調整 */
+    max-height: calc(100% - 16px); /* paddingを考慮した高さ調整 */
     image-rendering: -webkit-crisp-edges; /* Webkit系ブラウザ用 */
     image-rendering: -moz-crisp-edges; /* Firefox用 */
     image-rendering: crisp-edges; /* 標準プロパティ：エッジをシャープに */
