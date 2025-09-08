@@ -258,10 +258,6 @@ function createSponsorCard(sponsor, type) {
     const logoUrl = sponsor.avatar || sponsor.logo || '';
     const sponsorId = sponsor.id || generateRandomId();
     
-    // ロゴがない場合は表示しない
-    if (!logoUrl) {
-        return null;
-    }
 
     // カードのサイズはCSSクラスで制御
     
