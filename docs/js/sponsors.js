@@ -254,7 +254,7 @@ function renderSponsorSection(type, config, sponsors) {
  * @returns {string|null} カードHTML
  */
 function createSponsorCard(sponsor, type) {
-    const name = sponsor.name || '企業名未設定';
+    const name = sponsor.name || '';
     const logoUrl = sponsor.avatar || sponsor.logo || '';
     const sponsorId = sponsor.id || generateRandomId();
     
