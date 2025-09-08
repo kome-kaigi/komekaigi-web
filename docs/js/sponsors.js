@@ -27,12 +27,6 @@
             GOLD: { key: 'gold', label: 'GOLD', labelJp: 'ゴールドスポンサー' },
             SILVER: { key: 'silver', label: 'SILVER', labelJp: 'シルバースポンサー' },
             VENUE: { key: 'venue', label: 'VENUE', labelJp: '会場提供' }
-        },
-        
-        // モーダル設定
-        MODAL: {
-            LOGO_SIZE: 250,        // モーダル内ロゴサイズ
-            WRAPPER_WIDTH: 250     // モーダル内ロゴラッパー幅
         }
     };
 
@@ -45,7 +39,6 @@
     async function loadSponsors(retryCount = 0) {
         const sponsorSection = document.getElementById('sponsors-content');
         let shouldRetry = false;
-        let errorMessage = '';
         
         try {
             // タイムアウト設定付きfetch
@@ -58,13 +51,11 @@
             clearTimeout(timeout);
             
             if (!response.ok) {
-                errorMessage = `HTTP error! status: ${response.status}`;
                 shouldRetry = true;
             } else {
                 const data = await response.json();
                 
                 if (!data || !data.sponsor_plans) {
-                    errorMessage = 'Invalid sponsor data format';
                     shouldRetry = true;
                 } else {
                     // 正常にデータを取得できた場合
@@ -76,7 +67,6 @@
             
         } catch (error) {
             // ネットワークエラーやタイムアウトなど
-            errorMessage = error.message;
             shouldRetry = true;
         }
         
@@ -129,22 +119,17 @@
  * @returns {Object} タイプ別に分類されたスポンサー
  */
 function categorizeSponsors(sponsorPlans) {
-    const sponsorsByType = {
-        gold: [],
-        silver: [],
-        venue: []
-    };
+    const sponsorsByType = {};
+    Object.values(CONFIG.SPONSOR_TYPES).forEach(config => {
+        sponsorsByType[config.key] = [];
+    });
 
     sponsorPlans.forEach(plan => {
-        const planName = plan.name?.toLowerCase() || '';
-        const type = determineSponsorType(planName);
-        
-        if (type) {
-            const filteredSponsors = filterValidSponsors(plan.sponsors || []);
-            filteredSponsors.forEach(sponsor => {
-                sponsor.sponsorType = type;
-                sponsor.sponsorTypeName = getSponsorTypeName(type);
-                sponsorsByType[type].push(sponsor);
+        const type_en = plan.name_en;
+
+        if (type_en && sponsorsByType[type_en]) {
+            filterValidSponsors(plan.sponsors).forEach(sponsor => {
+                sponsorsByType[type_en].push(sponsor);
                 sponsorsData.push(sponsor);
             });
         }
@@ -154,43 +139,13 @@ function categorizeSponsors(sponsorPlans) {
 }
 
 /**
- * プラン名からスポンサータイプを判定
- * @param {string} planName - プラン名
- * @returns {string|null} スポンサータイプ
- */
-function determineSponsorType(planName) {
-    if (planName.includes('ゴールド')) return 'gold';
-    if (planName.includes('シルバー')) return 'silver';
-    if (planName.includes('会場')) return 'venue';
-    return null;
-}
-
-/**
- * スポンサータイプから日本語名を取得
- * @param {string} type - スポンサータイプ
- * @returns {string} 日本語名
- */
-function getSponsorTypeName(type) {
-    const typeMap = {
-        gold: 'ゴールドスポンサー',
-        silver: 'シルバースポンサー',
-        venue: '会場提供'
-    };
-    return typeMap[type] || '';
-}
-
-/**
  * 有効なスポンサーのみをフィルタリング
+ *  - avatarが存在するスポンサー
  * @param {Array} sponsors - スポンサーリスト
  * @returns {Array} フィルタリング済みスポンサーリスト
  */
 function filterValidSponsors(sponsors) {
-    return sponsors.filter(sponsor => {
-        // ロゴとPR文の両方が必要
-        const hasLogo = sponsor.avatar || sponsor.logo;
-        const hasValidPR = sponsor.pr && sponsor.pr.length >= CONFIG.CONTENT.MIN_PR_LENGTH;
-        return hasLogo && hasValidPR;
-    });
+    return sponsors.filter(sponsor => sponsor.avatar);
 }
 
 /**
@@ -226,7 +181,6 @@ function renderSponsors(sponsorsByType) {
 function renderSponsorSection(type, config, sponsors) {
     const cards = sponsors
         .map(sponsor => createSponsorCard(sponsor, type))
-        .filter(card => card !== null)
         .map(card => `<div class="sponsor-card-wrapper sponsor-card-${type}">${card}</div>`);
     
     if (cards.length === 0) return '';
@@ -251,15 +205,12 @@ function renderSponsorSection(type, config, sponsors) {
  * スポンサーカードを作成
  * @param {Object} sponsor - スポンサー情報
  * @param {string} type - スポンサータイプ
- * @returns {string|null} カードHTML
+ * @returns {string} カードHTML
  */
 function createSponsorCard(sponsor, type) {
     const name = sponsor.name || '';
-    const logoUrl = sponsor.avatar || sponsor.logo || '';
-    const sponsorId = sponsor.id || generateRandomId();
-    
-
-    // カードのサイズはCSSクラスで制御
+    const logoUrl = sponsor.avatar;
+    const sponsorId = sponsor.id;
     
     return `
         <div class="sponsor-card sponsor-card-${type}" data-sponsor-id="${sponsorId}">
@@ -271,14 +222,6 @@ function createSponsorCard(sponsor, type) {
             </div>
         </div>
     `;
-}
-
-/**
- * ランダムIDを生成
- * @returns {string} ランダムID
- */
-function generateRandomId() {
-    return Math.random().toString(36).substr(2, 9);
 }
 
 // ==========================================
@@ -314,14 +257,9 @@ function openSponsorModal(sponsorId) {
  * @param {Object} sponsor - スポンサー情報
  */
 function renderModalLogo(element, sponsor) {
-    const logoUrl = sponsor.avatar || sponsor.logo || '';
-    const logoHtml = logoUrl
-        ? `<img src="${logoUrl}" alt="${sponsor.name}" class="image-border-fix">`
-        : `<div class="modal-logo-fallback">${sponsor.name}</div>`;
-    
     element.innerHTML = `
         <div class="modal-logo-inner overflow-container">
-            ${logoHtml}
+            <img src="${sponsor.avatar}" alt="${sponsor.name}" class="image-border-fix">
         </div>
     `;
 }
@@ -340,7 +278,7 @@ function renderModalInfo(element, sponsor) {
                 <h4 style="margin-bottom: 1.5rem;">
                     ${sponsor.name}
                 </h4>
-                ${sponsor.pr && sponsor.pr !== '-' ? `
+                ${sponsor.pr && sponsor.pr.length >= CONFIG.CONTENT.MIN_PR_LENGTH ? `
                     <div>
                         <p class="text-gray-700 leading-relaxed">${sponsor.pr}</p>
                     </div>
@@ -468,10 +406,5 @@ window.addEventListener('keydown', function(event) {
             modalCloseButton.addEventListener('click', closeSponsorModal);
         }
     });
-    
-    // ==========================================
-    // グローバルAPI公開
-    // ==========================================
-    // イベント委譲を使用するため、グローバル関数の公開は不要
     
 })(window);
