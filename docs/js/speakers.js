@@ -43,7 +43,7 @@ class SpeakerManager {
      * スピーカーカードの動的生成
      */
     renderSpeakerCards() {
-        const container = document.querySelector('#speakers .grid');
+        const container = document.querySelector('#speakers .flex');
         if (!container) return;
 
         // スピーカーがいるセッションのみ表示
@@ -97,9 +97,9 @@ class SpeakerManager {
      */
     handleError(message) {
         console.error(message);
-        const container = document.querySelector('#speakers .grid');
+        const container = document.querySelector('#speakers .flex');
         if (container && container.children.length === 0) {
-            container.innerHTML = '<p class="text-center text-gray-600 col-span-2">スピーカー情報を読み込めませんでした</p>';
+            container.innerHTML = '<p class="text-center text-gray-600">スピーカー情報を読み込めませんでした</p>';
         }
     }
 }

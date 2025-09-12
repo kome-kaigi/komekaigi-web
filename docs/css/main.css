@@ -123,7 +123,7 @@ html {
     position: relative;
     background: var(--color-white);
     border: 1px solid var(--color-gray-200);
-    max-width: 550px;
+    width: 100%;
 }
 
 /* スピーカータイプ（基調講演・招待講演） */
