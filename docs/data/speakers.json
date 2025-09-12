@@ -1,0 +1,36 @@
+{
+  "sessions": [
+    {
+      "type": "基調講演",
+      "speakers": [
+        {
+          "id": "pharaohkj",
+          "name": "ふぁらお加藤",
+          "role": "ファランクスウェア代表 / BuriKaigiオーガナイザー",
+          "image": "assets/images/keynotes/pharaohkj.jpg",
+          "description": "金沢を拠点に活動するプログラマーです。kanazawa.rbやJAWS-UG金沢などなど地域技術コミュニティに関わってきました。<br>特に今回は、参加者200人を超える北陸三県に住むエンジニアの合同イベントBuriKaigiの運営実施経験やこれまでに至る歴史などを通じてお話し、地方発の技術コミュニティの価値と可能性をみなさんといっしょに考えたいです。"
+        }
+      ]
+    },
+    {
+      "type": "招待講演",
+      "speakers": [
+        {
+          "id": "minorun",
+          "name": "みのるん",
+          "role": "KDDIアジャイル開発センター株式会社 テックエバンジェリスト",
+          "image": "assets/images/keynotes/minorun.jpg",
+          "description": "クラウドやAIを中心に、開発・プリセールス・技術コンサルティングに携わりつつ、得た知見を発信する活動をしています。<br>AWS Community Hero、AWS Samurai、Qiita 2024 Top Contributor認定。<br>著書「Amazon Bedrock 生成AIアプリ開発入門」「やさしいMCP入門」、新刊「AIエージェント開発/運用入門」。"
+        }
+      ]
+    },
+    {
+      "type": "レギュラートーク",
+      "speakers": []
+    },
+    {
+      "type": "LT",
+      "speakers": []
+    }
+  ]
+}

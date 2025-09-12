@@ -57,6 +57,7 @@
                 <li><a href="/about" class="hover:text-[#fabe00] transition-colors">開催趣旨</a></li>
                 <li><a href="#overview" class="hover:text-[#fabe00] transition-colors">概要</a></li>
                 <li><a href="#access" class="hover:text-[#fabe00] transition-colors">アクセス</a></li>
+                <li><a href="#speakers" class="hover:text-[#fabe00] transition-colors">スピーカー</a></li>
                 <li><a href="#sponsors" class="hover:text-[#fabe00] transition-colors">スポンサー</a></li>
                 <li><a href="https://x.com/komekaigi" target="_blank"
                        class="hover:text-[#fabe00] transition-colors">公式X</a></li>
@@ -79,6 +80,7 @@
             <li><a href="/about" class="block px-4 py-3 hover:bg-[#fabe00]/10 transition-colors text-center">開催趣旨</a></li>
             <li><a href="#overview" class="block px-4 py-3 hover:bg-[#fabe00]/10 transition-colors text-center">概要</a></li>
             <li><a href="#access" class="block px-4 py-3 hover:bg-[#fabe00]/10 transition-colors text-center">アクセス</a></li>
+            <li><a href="#speakers" class="block px-4 py-3 hover:bg-[#fabe00]/10 transition-colors text-center">スピーカー</a></li>
             <li><a href="#sponsors" class="block px-4 py-3 hover:bg-[#fabe00]/10 transition-colors text-center">スポンサー</a></li>
             <li><a href="https://x.com/komekaigi" target="_blank"
                    class="block px-4 py-3 hover:bg-[#fabe00]/10 transition-colors text-center">公式X</a></li>
@@ -211,14 +213,26 @@
     </div>
 </section>
 
+<!-- Speakers Section -->
+<section id="speakers" class="py-16 md:py-20">
+    <div class="container mx-auto px-4 max-w-6xl">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold">
+                <span class="accent-text">スピーカー</span>
+            </h2>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 max-w-6xl mx-auto">
+            <!-- スピーカーカードはJavaScriptで動的に生成 -->
+        </div>
+    </div>
+</section>
+
 <!-- Sponsors Section -->
 <section id="sponsors" class="py-16 md:py-20 bg-amber-50">
     <div class="container mx-auto px-4 max-w-6xl">
-        <!-- セクションタイトル -->
         <h3 class="text-3xl font-bold text-center text-[#fabe00]">スポンサー</h3>
         
         <div id="sponsors-content">
-            <!-- スポンサー情報はJavaScriptで動的に追加されます -->
             <div class="text-center">
                 <div class="inline-block">
                     <svg class="animate-spin h-8 w-8 text-[#fabe00] fill-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -255,6 +269,7 @@
 
 <!-- JavaScript Files -->
 <script src="js/sponsors.js"></script>
+<script src="js/speakers.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
