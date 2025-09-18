@@ -23,14 +23,6 @@
           "description": "クラウドやAIを中心に、開発・プリセールス・技術コンサルティングに携わりつつ、得た知見を発信する活動をしています。<br>AWS Community Hero、AWS Samurai、Qiita 2024 Top Contributor認定。<br>著書「Amazon Bedrock 生成AIアプリ開発入門」「やさしいMCP入門」、新刊「AIエージェント開発/運用入門」。"
         }
       ]
-    },
-    {
-      "type": "レギュラートーク",
-      "speakers": []
-    },
-    {
-      "type": "LT",
-      "speakers": []
     }
   ]
 }

@@ -57,7 +57,7 @@
                 <li><a href="/about" class="hover:text-[#fabe00] transition-colors">開催趣旨</a></li>
                 <li><a href="#overview" class="hover:text-[#fabe00] transition-colors">概要</a></li>
                 <li><a href="#access" class="hover:text-[#fabe00] transition-colors">アクセス</a></li>
-                <li><a href="#speakers" class="hover:text-[#fabe00] transition-colors">スピーカー</a></li>
+                <li><a href="#sessions" class="hover:text-[#fabe00] transition-colors">セッション</a></li>
                 <li><a href="#sponsors" class="hover:text-[#fabe00] transition-colors">スポンサー</a></li>
                 <li><a href="https://x.com/komekaigi" target="_blank"
                        class="hover:text-[#fabe00] transition-colors">公式X</a></li>
@@ -80,7 +80,7 @@
             <li><a href="/about" class="block px-4 py-3 hover:bg-[#fabe00]/10 transition-colors text-center">開催趣旨</a></li>
             <li><a href="#overview" class="block px-4 py-3 hover:bg-[#fabe00]/10 transition-colors text-center">概要</a></li>
             <li><a href="#access" class="block px-4 py-3 hover:bg-[#fabe00]/10 transition-colors text-center">アクセス</a></li>
-            <li><a href="#speakers" class="block px-4 py-3 hover:bg-[#fabe00]/10 transition-colors text-center">スピーカー</a></li>
+            <li><a href="#sessions" class="block px-4 py-3 hover:bg-[#fabe00]/10 transition-colors text-center">セッション</a></li>
             <li><a href="#sponsors" class="block px-4 py-3 hover:bg-[#fabe00]/10 transition-colors text-center">スポンサー</a></li>
             <li><a href="https://x.com/komekaigi" target="_blank"
                    class="block px-4 py-3 hover:bg-[#fabe00]/10 transition-colors text-center">公式X</a></li>
@@ -122,10 +122,10 @@
                class="tech-button py-6 px-4 rounded-lg font-mono text-center h-20 flex items-center justify-center bg-amber-50 hover:bg-amber-100 border-[#fabe00] border-2 text-lg font-bold">
                 [ 参加申込 ]
             </a>
-            <button class="py-4 px-4 rounded-lg cursor-not-allowed font-mono text-center h-20 flex flex-col items-center justify-center bg-gray-100 border-2 border-gray-300 text-gray-400" disabled>
+            <a href="https://fortee.jp/komekaigi-2025/timetable" target="_blank" rel="noopener noreferrer"
+               class="py-4 px-4 rounded-lg font-mono text-center h-20 flex flex-col items-center justify-center bg-amber-50 border-2 border-[#fabe00] text-[#fabe00] hover:bg-[#fabe00] hover:text-white transition-all duration-300">
                 <span>[ タイムテーブル ]</span>
-                <span class="text-sm">準備中...</span>
-            </button>
+            </a>
         </div>
     </div>
 </section>
@@ -213,11 +213,26 @@
     </div>
 </section>
 
-<!-- Speakers Section -->
-<section id="speakers" class="py-16 md:py-20">
+<!-- Sessions Section -->
+<section id="sessions" class="py-16 md:py-20">
     <div class="container mx-auto px-4 max-w-6xl">
-        <div class="flex flex-col gap-10 max-w-2xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold">
+                <span class="accent-text">セッション</span>
+            </h2>
+        </div>
+        
+        <!-- スピーカーカード -->
+        <div class="flex flex-col gap-10 max-w-2xl mx-auto mb-12">
             <!-- スピーカーカードはJavaScriptで動的に生成 -->
+        </div>
+        
+        <!-- タイムテーブルリンク -->
+        <div class="text-center">
+            <a href="https://fortee.jp/komekaigi-2025/timetable" target="_blank" rel="noopener noreferrer"
+               class="inline-block tech-button px-8 py-4 text-lg font-bold rounded-lg transition-all duration-300">
+                タイムテーブルを見る →
+            </a>
         </div>
     </div>
 </section>
