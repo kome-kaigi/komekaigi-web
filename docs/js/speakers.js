@@ -1,80 +1,96 @@
 /**
- * KomeKaigi スピーカー管理モジュール
+ * KomeKaigi スピーカー表示機能
  */
+(function(window, document) {
+    'use strict';
 
-class SpeakerManager {
-    constructor() {
-        this.sessions = [];
-    }
+    // 設定
+    const CONFIG = {
+        DATA_URL: 'data/speakers.json',
+        SECTION_ID: 'sessions',
+        CONTAINER_SELECTOR: '#sessions .flex'
+    };
 
     /**
-     * 初期化
+     * スピーカーセクションを非表示にする
      */
-    async init() {
-        try {
-            // スピーカーカードの動的生成
-            await this.loadSpeakers();
-            this.renderSpeakerCards();
-        } catch (error) {
-            console.error('Failed to initialize speakers:', error);
-            this.handleError('スピーカー情報の読み込みに失敗しました');
+    function hideSpeakersSection() {
+        const container = document.querySelector(CONFIG.CONTAINER_SELECTOR);
+        if (container) {
+            container.innerHTML = '';
+        }
+        const sessionsSection = document.getElementById(CONFIG.SECTION_ID);
+        if (sessionsSection) {
+            sessionsSection.style.display = 'none';
         }
     }
 
     /**
-     * スピーカーデータの読み込み
+     * スピーカーデータを取得して表示
      */
-    async loadSpeakers() {
+    async function loadSpeakers() {
         try {
-            const response = await fetch('data/speakers.json');
+            const response = await fetch(CONFIG.DATA_URL);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             const data = await response.json();
-            this.sessions = data.sessions || [];
+            
+            renderSpeakerCards(data.sessions || []);
+            
         } catch (error) {
-            console.error('Failed to load speakers data:', error);
-            this.sessions = [];
-            this.handleError('スピーカー情報の読み込みに失敗しました');
+            console.error('スピーカーデータの取得エラー:', error);
+            hideSpeakersSection();
         }
     }
 
     /**
-     * スピーカーカードの動的生成
+     * スピーカーカードをレンダリング
+     * @param {Array} sessions - セッションの配列
      */
-    renderSpeakerCards() {
-        const container = document.querySelector('#sessions .flex');
+    function renderSpeakerCards(sessions) {
+        const container = document.querySelector(CONFIG.CONTAINER_SELECTOR);
         if (!container) return;
 
         // スピーカーがいるセッションのみ表示
-        container.innerHTML = this.sessions
+        const speakerCards = sessions
             .filter(session => session.speakers && session.speakers.length > 0)
             .flatMap(session =>
                 session.speakers.map(speaker =>
-                    this.createSpeakerCard(speaker, session.type)
+                    createSpeakerCard(speaker, session.type)
                 )
             )
             .join('');
+
+        if (!speakerCards) {
+            hideSpeakersSection();
+            return;
+        }
+
+        container.innerHTML = speakerCards;
     }
 
     /**
-     * スピーカーカードのHTML生成
+     * スピーカーカードを作成
+     * @param {Object} speaker - スピーカーのデータ
+     * @param {string} sessionType - セッションタイプ
+     * @returns {string} HTMLテキスト
      */
-    createSpeakerCard(speaker, sessionType) {
+    function createSpeakerCard(speaker, sessionType) {
         return `
             <div class="speaker-card card p-8 md:p-10">
                 <div class="text-center mb-6">
                     <span class="speaker-type text-xl md:text-2xl font-bold uppercase tracking-wider inline-block mb-4">
-                        ${this.escapeHtml(sessionType)}
+                        ${escapeHtml(sessionType)}
                     </span>
                     <div class="mb-6">
-                        <img src="${this.escapeHtml(speaker.image)}" 
-                             alt="${this.escapeHtml(speaker.name)}" 
+                        <img src="${escapeHtml(speaker.image)}" 
+                             alt="${escapeHtml(speaker.name)}" 
                              class="speaker-image w-36 h-36 mx-auto rounded-full object-cover border-2 border-gray-200"
                              loading="lazy"/>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-800">${this.escapeHtml(speaker.name)}</h3>
-                    <p class="text-gray-600 mb-6">${this.escapeHtml(speaker.role)}</p>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-800">${escapeHtml(speaker.name)}</h3>
+                    <p class="text-gray-600 mb-6">${escapeHtml(speaker.role)}</p>
                 </div>
                 <div class="text-left px-2">
                     <p class="text-gray-700 leading-loose text-sm">${speaker.description}</p>
@@ -83,29 +99,7 @@ class SpeakerManager {
         `;
     }
 
-    /**
-     * HTMLエスケープ
-     */
-    escapeHtml(text) {
-        const div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
-    }
+    // 初期化
+    document.addEventListener('DOMContentLoaded', loadSpeakers);
 
-    /**
-     * エラーハンドリング
-     */
-    handleError(message) {
-        console.error(message);
-        const container = document.querySelector('#sessions .flex');
-        if (container && container.children.length === 0) {
-            container.innerHTML = '<p class="text-center text-gray-600">スピーカー情報を読み込めませんでした</p>';
-        }
-    }
-}
-
-// 初期化
-document.addEventListener('DOMContentLoaded', function() {
-    const speakerManager = new SpeakerManager();
-    speakerManager.init();
-});
+})(window, document);

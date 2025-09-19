@@ -1,0 +1,152 @@
+/**
+ * KomeKaigi スタッフセクション用スタイル
+ */
+
+/* スタッフグリッドレイアウト */
+.staff-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+/* グリッドアイテムの幅設定 */
+.staff-grid > * {
+    flex: 0 0 auto;
+    width: 100px;
+}
+
+@media (max-width: 640px) {
+    .staff-grid {
+        gap: 1.5rem;
+    }
+    .staff-grid > * {
+        width: 80px;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+    .staff-grid {
+        gap: 1.75rem;
+    }
+    .staff-grid > * {
+        width: 90px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .staff-grid {
+        gap: 2rem;
+    }
+    .staff-grid > * {
+        width: 100px;
+    }
+}
+
+@media (min-width: 1025px) {
+    .staff-grid {
+        gap: 2.5rem;
+    }
+    .staff-grid > * {
+        width: 110px;
+    }
+}
+
+
+/* スタッフメンバーカード */
+.staff-member {
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+/* スタッフリンク */
+.staff-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.staff-link:hover .staff-member {
+    transform: translateY(-4px);
+}
+
+/* アバター画像ラッパー */
+.staff-avatar-wrapper {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 0.75rem;
+    overflow: hidden;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #fabe00 0%, #ffdb4d 100%);
+    padding: 3px;
+}
+
+@media (min-width: 768px) {
+    .staff-avatar-wrapper {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* アバター画像 */
+.staff-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    background: white;
+    display: block;
+}
+
+/* リンクホバー時のアバターエフェクト */
+.staff-link:hover .staff-avatar-wrapper {
+    background: linear-gradient(135deg, #ffdb4d 0%, #fabe00 100%);
+    box-shadow: 0 4px 12px rgba(250, 190, 0, 0.3);
+}
+
+.staff-link:hover .staff-avatar {
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
+}
+
+/* スタッフ名 */
+.staff-name {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    color: #2A2E35;
+    word-break: break-word;
+    max-width: 100px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .staff-name {
+        font-size: 0.9375rem;
+        line-height: 1.375rem;
+        max-width: 120px;
+    }
+}
+
+/* リンクホバー時の名前カラー */
+.staff-link:hover .staff-name {
+    color: #fabe00;
+}
+
+/* ローディングアニメーション調整 */
+#staff-content .animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
