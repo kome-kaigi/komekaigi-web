@@ -17,9 +17,7 @@
         
         // コンテンツ設定
         CONTENT: {
-            MIN_PR_LENGTH: 20,    // PR文の最小文字数
-            ERROR_MESSAGE: 'スポンサー情報の読み込みに失敗しました。',
-            RELOAD_BUTTON_TEXT: 'ページを再読み込み'
+            MIN_PR_LENGTH: 20    // PR文の最小文字数
         },
         
         // スポンサータイプ
@@ -76,40 +74,23 @@
             if (retryCount < CONFIG.API.RETRY_COUNT - 1) {
                 setTimeout(() => loadSponsors(retryCount + 1), CONFIG.API.RETRY_DELAY);
             } else {
-                // リトライ回数超過時のフォールバック表示
-                renderErrorMessage(sponsorSection, CONFIG.CONTENT.ERROR_MESSAGE);
+                // エラー時は何も表示しない（セクション自体を非表示）
+                hideSponsorsSection(sponsorSection);
             }
         }
     }
 
     /**
-     * エラーメッセージを表示
-     * @param {HTMLElement} container - 表示先の要素
-     * @param {string} message - エラーメッセージ
+     * スポンサーセクションを非表示にする
+     * @param {HTMLElement} contentElement - コンテンツ要素
      */
-    function renderErrorMessage(container, message) {
-        if (!container) return;
-        
-        container.innerHTML = `
-            <div class="text-center py-8">
-                <div class="inline-flex items-center justify-center w-16 h-16 bg-amber-100 rounded-full mb-4">
-                    <svg class="w-8 h-8 text-amber-600" fill-none stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z">
-                        </path>
-                    </svg>
-                </div>
-                <p class="text-gray-600 mb-4">${message}</p>
-                <button id="errorReloadButton" class="px-4 py-2 bg-amber-100 text-amber-800 rounded-lg hover:bg-amber-200 transition-colors">
-                    ${CONFIG.CONTENT.RELOAD_BUTTON_TEXT}
-                </button>
-            </div>
-        `;
-        
-        // リロードボタンのイベントリスナーを追加
-        const reloadButton = document.getElementById('errorReloadButton');
-        if (reloadButton) {
-            reloadButton.addEventListener('click', () => location.reload());
+    function hideSponsorsSection(contentElement) {
+        if (contentElement) {
+            contentElement.innerHTML = '';
+        }
+        const sponsorsSection = document.getElementById('sponsors');
+        if (sponsorsSection) {
+            sponsorsSection.style.display = 'none';
         }
     }
 
