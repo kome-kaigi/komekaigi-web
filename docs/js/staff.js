@@ -58,7 +58,7 @@
         
         const sectionTitle = `
             <div class="text-center mb-8">
-                <h3 class="text-3xl font-bold section-title">スタッフ</h3>
+                <h3 class="text-3xl section-title">スタッフ</h3>
             </div>
         `;
         
