@@ -170,7 +170,7 @@ function renderSponsorSection(type, config, sponsors) {
         <div class="sponsor-section-${type}">
             <div class="container mx-auto px-4${type !== 'silver' ? ' max-w-6xl' : ''}">
                 <div class="text-center mb-8">
-                    <h4 class="text-2xl font-semibold text-[#fabe00]">
+                    <h4 class="text-2xl font-semibold text-primary">
                         ${config.labelJp}
                     </h4>
                 </div>

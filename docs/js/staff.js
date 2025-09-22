@@ -57,10 +57,8 @@
         }
         
         const sectionTitle = `
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold">
-                    <span class="accent-text">スタッフ</span>
-                </h2>
+            <div class="text-center mb-8">
+                <h3 class="text-3xl section-title">スタッフ</h3>
             </div>
         `;
         
@@ -75,9 +73,9 @@
             
             return `
                 <div class="mb-12">
-                    <h3 class="text-xl md:text-2xl font-bold text-center mb-8 text-[#fabe00]">
+                    <h4 class="text-2xl font-semibold text-center mb-8 text-primary">
                         ${escapeHtml(type.name)}
-                    </h3>
+                    </h4>
                     <div class="staff-grid">
                         ${membersWithAvatar.map(member => createStaffCard(member)).join('')}
                     </div>
