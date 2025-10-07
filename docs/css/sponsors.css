@@ -49,7 +49,8 @@
 }
 
 .sponsor-card-fallback-gold,
-.sponsor-card-fallback-venue {
+.sponsor-card-fallback-venue,
+.sponsor-card-fallback-accounting {
     font-size: var(--text-2xl);
 }
 
@@ -115,7 +116,8 @@
 /* スポンサータイプ別セクション */
 .sponsor-section-gold,
 .sponsor-section-silver,
-.sponsor-section-venue {
+.sponsor-section-venue,
+.sponsor-section-accounting {
     padding: 2rem 0;
     position: relative;
 }
@@ -151,6 +153,12 @@
     max-width: var(--sponsor-container-venue-max);
 }
 
+/* 会計協力スポンサー用コンテナ */
+.sponsor-cards-accounting {
+    gap: var(--spacing-lg);
+    max-width: var(--sponsor-container-venue-max);
+}
+
 /* カードラッパーのサイズ設定 */
 .sponsor-card-wrapper.sponsor-card-gold {
     width: var(--sponsor-card-gold-width);
@@ -164,6 +172,10 @@
     width: var(--sponsor-card-venue-width);
 }
 
+.sponsor-card-wrapper.sponsor-card-accounting {
+    width: var(--sponsor-card-venue-width);
+}
+
 /* スポンサーカードの最小高さ設定 */
 .sponsor-card.sponsor-card-gold {
     min-height: 160px;
@@ -174,6 +186,10 @@
 }
 
 .sponsor-card.sponsor-card-venue {
+    min-height: 160px;
+}
+
+.sponsor-card.sponsor-card-accounting {
     min-height: 160px;
 }
 
