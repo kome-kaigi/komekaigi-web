@@ -24,7 +24,8 @@
         SPONSOR_TYPES: {
             GOLD: { key: 'gold', label: 'GOLD', labelJp: 'ゴールドスポンサー' },
             SILVER: { key: 'silver', label: 'SILVER', labelJp: 'シルバースポンサー' },
-            VENUE: { key: 'venue', label: 'VENUE', labelJp: '会場提供' }
+            VENUE: { key: 'venue', label: 'VENUE', labelJp: '会場提供' },
+            ACCOUNTING: { key: 'accounting', label: 'ACCOUNTING', labelJp: '会計協力' }
         }
     };
 
