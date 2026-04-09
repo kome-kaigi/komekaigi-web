@@ -63,6 +63,7 @@ a {
 .site-brand {
     display: inline-flex;
     align-items: center;
+    gap: 0.55rem;
     opacity: 0.85;
     transition: opacity 0.2s ease;
 }
@@ -72,8 +73,16 @@ a {
 }
 
 .site-brand-logo {
-    height: 36px;
+    height: 32px;
     width: auto;
+}
+
+.site-brand-text {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    letter-spacing: 0.03em;
 }
 
 /* Hamburger button */
