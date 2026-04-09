@@ -61,18 +61,19 @@ a {
 }
 
 .site-brand {
-    font-family: var(--font-mono);
-    font-size: 0.95rem;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--color-ink);
+    display: inline-flex;
+    align-items: center;
     opacity: 0.85;
     transition: opacity 0.2s ease;
 }
 
 .site-brand:hover {
     opacity: 1;
+}
+
+.site-brand-logo {
+    height: 36px;
+    width: auto;
 }
 
 /* Hamburger button */
