@@ -220,9 +220,9 @@ a {
 }
 
 .hero-logo {
-    width: clamp(150px, 26vw, 220px);
+    width: clamp(200px, 40vw, 360px);
     height: auto;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
 }
 
 .hero-kicker {
