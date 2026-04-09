@@ -14,6 +14,7 @@
 
     --font-sans: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-serif: 'Merriweather', Georgia, serif;
+    --font-mono: 'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace;
 }
 
 * {
@@ -60,10 +61,11 @@ a {
 }
 
 .site-brand {
-    font-family: var(--font-sans);
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
     color: var(--color-ink);
     opacity: 0.85;
     transition: opacity 0.2s ease;
@@ -135,11 +137,12 @@ a {
 
 .site-menu-label {
     margin: 1.75rem 0 0.5rem;
-    font-size: 0.72rem;
-    letter-spacing: 0.16em;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--color-primary-dark);
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .site-menu-label:first-child {
@@ -213,12 +216,34 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.75rem;
+    gap: 1.25rem;
 }
 
 .hero-logo {
     width: clamp(120px, 22vw, 180px);
     height: auto;
+    margin-bottom: 0.75rem;
+}
+
+.hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--color-primary-dark);
+}
+
+.hero-kicker-rule {
+    display: inline-block;
+    width: clamp(28px, 6vw, 52px);
+    height: 1px;
+    background: var(--color-primary-dark);
+    opacity: 0.7;
 }
 
 .hero-title {
@@ -233,8 +258,9 @@ a {
 
 .hero-tag {
     margin: 0;
-    font-size: 0.85rem;
-    letter-spacing: 0.22em;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--color-muted);
 }
@@ -247,8 +273,9 @@ a {
     z-index: 1;
     padding: 1.5rem;
     text-align: center;
-    font-size: 0.72rem;
-    letter-spacing: 0.14em;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--color-muted);
 }
