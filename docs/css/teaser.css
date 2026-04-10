@@ -1,0 +1,326 @@
+/* ==========================================
+   KomeKaigi 2026 Teaser
+   Minimal holding page — warm paddy palette
+   ========================================== */
+
+:root {
+    --color-primary: #fabe00;
+    --color-primary-dark: #d9a200;
+    --color-ink: #2A2E35;
+    --color-paper: #f7f3e8;   /* 米・和紙のクリーム */
+    --color-paper-soft: #f0ebdb;
+    --color-muted: rgba(42, 46, 53, 0.6);
+    --color-line: rgba(42, 46, 53, 0.12);
+
+    --font-sans: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-serif: 'Merriweather', Georgia, serif;
+    --font-mono: 'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    background: var(--color-paper);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ==========================================
+   Header
+   ========================================== */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem clamp(1.25rem, 4vw, 2.5rem);
+    background: transparent;
+}
+
+.site-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+}
+
+.site-brand:hover {
+    opacity: 1;
+}
+
+.site-brand-logo {
+    height: 32px;
+    width: auto;
+}
+
+.site-brand-text {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    letter-spacing: 0.03em;
+}
+
+/* Hamburger button */
+.menu-toggle {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+.menu-toggle-bar {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--color-ink);
+    transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.menu-toggle[aria-expanded='true'] .menu-toggle-bar:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
+}
+.menu-toggle[aria-expanded='true'] .menu-toggle-bar:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle[aria-expanded='true'] .menu-toggle-bar:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* ==========================================
+   Slide-in menu
+   ========================================== */
+.site-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(380px, 86vw);
+    z-index: 20;
+    background: var(--color-paper-soft);
+    border-left: 1px solid var(--color-line);
+    transform: translateX(105%);
+    transition: transform 0.3s ease;
+    padding: 5.5rem 2rem 2rem;
+    overflow-y: auto;
+}
+
+.site-menu[aria-hidden='false'] {
+    transform: translateX(0);
+}
+
+.site-menu-inner {
+    display: flex;
+    flex-direction: column;
+}
+
+.site-menu-label {
+    margin: 1.75rem 0 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-primary-dark);
+    font-weight: 500;
+}
+
+.site-menu-label:first-child {
+    margin-top: 0;
+}
+
+.site-menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.site-menu-list a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--color-line);
+    font-size: 1rem;
+    color: var(--color-ink);
+    transition: color 0.2s ease;
+}
+
+.site-menu-list a:hover {
+    color: var(--color-primary-dark);
+}
+
+.site-menu-arrow {
+    font-size: 1rem;
+    opacity: 0.5;
+}
+
+/* ==========================================
+   Hero
+   ========================================== */
+.hero {
+    position: relative;
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 1.5rem 4rem;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.hero-stalks {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    color: var(--color-primary);
+    opacity: 0.45;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 clamp(1rem, 8vw, 6rem);
+}
+
+.hero-stalks svg {
+    width: clamp(60px, 10vw, 110px);
+    height: auto;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.hero-logo {
+    width: clamp(200px, 40vw, 360px);
+    height: auto;
+    margin-bottom: 1.25rem;
+}
+
+.hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: clamp(0.82rem, 1.6vw, 0.95rem);
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--color-primary-dark);
+}
+
+.hero-kicker-rule {
+    display: inline-block;
+    width: clamp(32px, 6vw, 60px);
+    height: 1px;
+    background: var(--color-primary-dark);
+    opacity: 0.7;
+}
+
+.hero-title {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: clamp(2.75rem, 8vw, 5rem);
+    letter-spacing: 0.02em;
+    color: var(--color-ink);
+    line-height: 1.15;
+}
+
+.hero-lead {
+    margin: 0;
+    max-width: 34em;
+    font-family: var(--font-sans);
+    font-size: clamp(1.05rem, 2.6vw, 1.3rem);
+    font-weight: 400;
+    line-height: 2;
+    color: var(--color-ink);
+    opacity: 0.88;
+}
+
+.hero-lead br {
+    display: none;
+}
+
+@media (min-width: 560px) {
+    .hero-lead br {
+        display: inline;
+    }
+}
+
+.hero-tag {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+}
+
+/* ==========================================
+   Footer
+   ========================================== */
+.site-footer {
+    position: relative;
+    z-index: 1;
+    padding: 1.5rem;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+}
+
+/* ==========================================
+   Responsive
+   ========================================== */
+@media (max-width: 640px) {
+    .hero {
+        padding: 5rem 1.25rem 3.5rem;
+    }
+
+    .hero-stalks {
+        padding: 0 1rem;
+        opacity: 0.35;
+    }
+}
