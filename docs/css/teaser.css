@@ -555,16 +555,6 @@ a {
     opacity: 0.85;
 }
 
-.sponsors-lead br {
-    display: none;
-}
-
-@media (min-width: 560px) {
-    .sponsors-lead br {
-        display: inline;
-    }
-}
-
 .sponsors-channels {
     list-style: none;
     margin: 0;
