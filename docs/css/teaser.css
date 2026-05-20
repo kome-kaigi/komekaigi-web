@@ -230,30 +230,29 @@ a {
 }
 
 .hero-logo {
-    width: clamp(200px, 40vw, 360px);
+    width: clamp(260px, 52vw, 480px);
     height: auto;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
 }
 
 .hero-kicker {
     display: inline-flex;
     align-items: center;
-    gap: 1rem;
+    gap: clamp(0.85rem, 1.8vw, 1.25rem);
     margin: 0;
     font-family: var(--font-mono);
-    font-size: clamp(0.82rem, 1.6vw, 0.95rem);
-    font-weight: 500;
-    letter-spacing: 0.26em;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 700;
+    letter-spacing: 0.3em;
     text-transform: uppercase;
     color: var(--color-primary-dark);
 }
 
 .hero-kicker-rule {
     display: inline-block;
-    width: clamp(32px, 6vw, 60px);
-    height: 1px;
-    background: var(--color-primary-dark);
-    opacity: 0.7;
+    width: clamp(44px, 7vw, 80px);
+    height: 2px;
+    background: var(--color-primary);
 }
 
 .hero-title {
@@ -353,7 +352,7 @@ a {
     display: inline-flex;
     align-items: center;
     gap: 1rem;
-    margin: 0 0 1.75rem;
+    margin: 0 0 2rem;
     font-family: var(--font-mono);
     font-size: clamp(0.92rem, 1.7vw, 1.05rem);
     font-weight: 700;
@@ -368,26 +367,6 @@ a {
     width: clamp(36px, 6vw, 60px);
     height: 2px;
     background: var(--color-primary);
-}
-
-.event-title {
-    margin: 0 0 2.5rem;
-    font-family: var(--font-serif);
-    font-weight: 700;
-    font-size: clamp(2.2rem, 5vw, 3.4rem);
-    letter-spacing: 0.02em;
-    color: var(--color-ink);
-    line-height: 1.15;
-}
-
-.event-title-dow {
-    margin-left: 0.25em;
-    font-family: var(--font-mono);
-    font-weight: 500;
-    font-size: 0.45em;
-    letter-spacing: 0.22em;
-    color: var(--color-primary-dark);
-    vertical-align: 0.35em;
 }
 
 .event-dl {
