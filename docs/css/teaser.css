@@ -474,45 +474,12 @@ a {
 }
 
 .sponsors-lead {
-    margin: 0 0 2rem;
+    margin: 0;
     font-family: var(--font-sans);
     font-size: clamp(1rem, 2.2vw, 1.1rem);
     line-height: 1.9;
     color: var(--color-ink);
     opacity: 0.85;
-}
-
-.sponsors-channels {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    border-top: 1px solid var(--color-line);
-}
-
-.sponsors-channels li {
-    border-bottom: 1px solid var(--color-line);
-}
-
-.sponsors-channels a {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1rem 0;
-    font-family: var(--font-sans);
-    font-size: 1rem;
-    color: var(--color-ink);
-    cursor: pointer;
-    transition: color 0.2s ease;
-}
-
-.sponsors-channels a:hover {
-    color: var(--color-primary-dark);
-}
-
-.sponsors-channels-arrow {
-    font-size: 1rem;
-    opacity: 0.5;
 }
 
 /* ==========================================
