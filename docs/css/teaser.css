@@ -463,9 +463,13 @@ a {
 }
 
 @media (max-width: 560px) {
-    .event-row {
+    .event-row,
+    .join-row {
         grid-template-columns: 1fr;
         gap: 0.35rem;
+    }
+
+    .event-row {
         padding: 1.1rem 0;
     }
 
@@ -541,7 +545,7 @@ a {
     border-left: 3px solid transparent;
 }
 
-.join-row-last {
+.join-row:last-child {
     border-bottom: 1px solid var(--color-line);
 }
 
@@ -597,11 +601,6 @@ a {
 }
 
 @media (max-width: 560px) {
-    .join-row {
-        grid-template-columns: 1fr;
-        gap: 0.35rem;
-    }
-
     .join-row-open {
         gap: 0.5rem;
     }
