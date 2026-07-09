@@ -195,8 +195,8 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 6rem 1.5rem 4rem;
-    min-height: 100vh;
+    padding: 6rem 1.5rem 3rem;
+    min-height: 88vh;
     overflow: hidden;
 }
 
@@ -286,6 +286,31 @@ a {
     }
 }
 
+.hero-theme {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.5rem 0 0;
+}
+
+.hero-theme-label {
+    font-family: var(--font-mono);
+    font-size: clamp(0.78rem, 1.4vw, 0.9rem);
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+}
+
+.hero-theme-name {
+    font-family: 'Merriweather', 'Noto Sans JP', Georgia, serif;
+    font-size: clamp(1.4rem, 3.4vw, 2rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--color-ink);
+}
+
 .hero-tag {
     margin: 0;
     font-family: var(--font-mono);
@@ -348,7 +373,7 @@ a {
 }
 
 .event-eyebrow,
-.sponsors-eyebrow {
+.join-eyebrow {
     display: inline-flex;
     align-items: center;
     gap: 1rem;
@@ -362,11 +387,15 @@ a {
 }
 
 .event-eyebrow-rule,
-.sponsors-eyebrow-rule {
+.join-eyebrow-rule {
     display: inline-block;
     width: clamp(36px, 6vw, 60px);
     height: 2px;
     background: var(--color-primary);
+}
+
+.join-eyebrow {
+    margin-bottom: 1.25rem;
 }
 
 .event-dl {
@@ -434,9 +463,13 @@ a {
 }
 
 @media (max-width: 560px) {
-    .event-row {
+    .event-row,
+    .join-row {
         grid-template-columns: 1fr;
         gap: 0.35rem;
+    }
+
+    .event-row {
         padding: 1.1rem 0;
     }
 
@@ -467,9 +500,9 @@ a {
 }
 
 /* ==========================================
-   Sponsors — Recruiting Soon
+   Join Us
    ========================================== */
-.sponsors-soon {
+.join-us {
     position: relative;
     z-index: 1;
     padding: clamp(3.5rem, 8vw, 5.5rem) clamp(1.5rem, 5vw, 3rem);
@@ -477,30 +510,104 @@ a {
     background: var(--color-paper-soft);
 }
 
-.sponsors-soon-inner {
+.join-us-inner {
     max-width: 760px;
     margin: 0 auto;
-    text-align: left;
 }
 
-.sponsors-title {
-    margin: 0 0 1.25rem;
+.join-list {
+    display: grid;
+}
+
+.join-row {
+    display: grid;
+    grid-template-columns: clamp(110px, 14vw, 150px) 1fr auto;
+    align-items: center;
+    gap: 1.5rem;
+    border-top: 1px solid var(--color-line);
+}
+
+.join-row-open {
+    padding: 1.6rem 1.25rem;
+    border-left: 3px solid var(--color-primary);
+    background: rgba(250, 190, 0, 0.1);
+    transition: background 0.2s ease, border-left-color 0.2s ease;
+}
+
+.join-row-open:hover,
+.join-row-open:focus-visible {
+    background: rgba(250, 190, 0, 0.2);
+    border-left-color: var(--color-primary-dark);
+}
+
+.join-row-soon {
+    padding: 1.35rem 1.25rem;
+    border-left: 3px solid transparent;
+}
+
+.join-row:last-child {
+    border-bottom: 1px solid var(--color-line);
+}
+
+.join-status {
     font-family: var(--font-mono);
-    font-weight: 500;
-    font-size: clamp(1.1rem, 3.5vw, 1.9rem);
-    letter-spacing: clamp(0.1em, 1.5vw, 0.2em);
-    color: var(--color-primary-dark);
-    line-height: 1.4;
-    white-space: nowrap;
+    letter-spacing: 0.14em;
 }
 
-.sponsors-lead {
-    margin: 0;
-    font-family: var(--font-sans);
-    font-size: clamp(1rem, 2.2vw, 1.1rem);
-    line-height: 1.9;
+.join-status-open {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+}
+
+.join-status-soon {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgba(42, 46, 53, 0.45);
+}
+
+.join-label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.join-row-open .join-label-title {
+    font-size: clamp(1.1rem, 2.4vw, 1.3rem);
+    font-weight: 700;
     color: var(--color-ink);
-    opacity: 0.85;
+}
+
+.join-row-open .join-label-sub {
+    font-size: 0.875rem;
+    color: rgba(42, 46, 53, 0.65);
+}
+
+.join-row-soon .join-label-title {
+    font-size: clamp(1rem, 2.2vw, 1.15rem);
+    font-weight: 700;
+    color: rgba(42, 46, 53, 0.55);
+}
+
+.join-row-soon .join-label-sub {
+    font-size: 0.875rem;
+    color: rgba(42, 46, 53, 0.5);
+}
+
+.join-arrow {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+}
+
+@media (max-width: 560px) {
+    .join-row-open {
+        gap: 0.5rem;
+    }
+
+    .join-arrow {
+        display: none;
+    }
 }
 
 /* ==========================================
