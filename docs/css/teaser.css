@@ -540,6 +540,18 @@ a {
     border-left-color: var(--color-primary-dark);
 }
 
+.join-row-closed {
+    padding: 1.35rem 1.25rem;
+    border-left: 3px solid rgba(42, 46, 53, 0.2);
+    transition: background 0.2s ease, border-left-color 0.2s ease;
+}
+
+.join-row-closed:hover,
+.join-row-closed:focus-visible {
+    background: rgba(42, 46, 53, 0.05);
+    border-left-color: rgba(42, 46, 53, 0.35);
+}
+
 .join-row-soon {
     padding: 1.35rem 1.25rem;
     border-left: 3px solid transparent;
@@ -566,6 +578,12 @@ a {
     color: rgba(42, 46, 53, 0.45);
 }
 
+.join-status-closed {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: rgba(42, 46, 53, 0.7);
+}
+
 .join-label {
     display: flex;
     flex-direction: column;
@@ -581,6 +599,17 @@ a {
 .join-row-open .join-label-sub {
     font-size: 0.875rem;
     color: rgba(42, 46, 53, 0.65);
+}
+
+.join-row-closed .join-label-title {
+    font-size: clamp(1rem, 2.2vw, 1.15rem);
+    font-weight: 700;
+    color: rgba(42, 46, 53, 0.72);
+}
+
+.join-row-closed .join-label-sub {
+    font-size: 0.875rem;
+    color: rgba(42, 46, 53, 0.55);
 }
 
 .join-row-soon .join-label-title {
@@ -600,8 +629,14 @@ a {
     color: var(--color-primary-dark);
 }
 
+.join-row-closed .join-arrow {
+    font-size: 1.15rem;
+    color: rgba(42, 46, 53, 0.45);
+}
+
 @media (max-width: 560px) {
-    .join-row-open {
+    .join-row-open,
+    .join-row-closed {
         gap: 0.5rem;
     }
 
