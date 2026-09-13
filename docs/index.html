@@ -87,6 +87,12 @@
                         <span class="site-menu-arrow" aria-hidden="true">↓</span>
                     </a>
                 </li>
+                <li data-sponsors-menu hidden>
+                    <a href="#sponsors" data-menu-anchor>
+                        <span>Sponsors</span>
+                        <span class="site-menu-arrow" aria-hidden="true">↓</span>
+                    </a>
+                </li>
             </ul>
 
             <p class="site-menu-label">Past Editions</p>
@@ -273,6 +279,18 @@
         </div>
     </section>
 
+    <!-- Sponsors (data/sponsors.json から js/sponsors.js で描画) -->
+    <section id="sponsors" class="sponsors" aria-labelledby="sponsors-heading" hidden>
+        <div class="sponsors-inner">
+            <h2 id="sponsors-heading" class="sponsors-eyebrow">
+                <span class="sponsors-eyebrow-rule" aria-hidden="true"></span>
+                <span>SPONSORS</span>
+            </h2>
+
+            <div class="sponsor-plan-list"></div>
+        </div>
+    </section>
+
     <footer class="site-footer">
         <small>&copy; KomeKaigi</small>
     </footer>
@@ -281,5 +299,6 @@
     <!-- BudouX: 日本語を文節単位で改行させる -->
     <script src="https://cdn.jsdelivr.net/npm/budoux@0.9.1/bundle/budoux-ja.min.js" defer></script>
     <script src="js/speakers.js" defer></script>
+    <script src="js/sponsors.js" defer></script>
 </body>
 </html>
