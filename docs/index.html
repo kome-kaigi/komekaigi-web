@@ -69,6 +69,12 @@
         <div class="site-menu-inner">
             <p class="site-menu-label">On This Page</p>
             <ul class="site-menu-list">
+                <li data-speakers-menu hidden>
+                    <a href="#speakers" data-menu-anchor>
+                        <span>Speakers</span>
+                        <span class="site-menu-arrow" aria-hidden="true">↓</span>
+                    </a>
+                </li>
                 <li>
                     <a href="#join" data-menu-anchor>
                         <span>Join Us</span>
@@ -161,6 +167,18 @@
             </p>
         </div>
     </main>
+
+    <!-- Speakers (data/speakers.json から js/speakers.js で描画) -->
+    <section id="speakers" class="speakers" aria-labelledby="speakers-heading" hidden>
+        <div class="speakers-inner">
+            <h2 id="speakers-heading" class="speakers-eyebrow">
+                <span class="speakers-eyebrow-rule" aria-hidden="true"></span>
+                <span>SPEAKERS</span>
+            </h2>
+
+            <div class="speaker-list"></div>
+        </div>
+    </section>
 
     <!-- Join Us -->
     <section id="join" class="join-us" aria-labelledby="join-heading">
@@ -256,5 +274,8 @@
     </footer>
 
     <script src="js/teaser.js" defer></script>
+    <!-- BudouX: 日本語を文節単位で改行させる -->
+    <script src="https://cdn.jsdelivr.net/npm/budoux@0.9.1/bundle/budoux-ja.min.js" defer></script>
+    <script src="js/speakers.js" defer></script>
 </body>
 </html>
