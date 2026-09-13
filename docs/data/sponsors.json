@@ -1,0 +1,31 @@
+{
+  "plans": [
+    {
+      "id": "gold",
+      "type": "ゴールドスポンサー",
+      "typeEn": "GOLD",
+      "layout": "logo",
+      "sponsors": []
+    },
+    {
+      "id": "silver",
+      "type": "シルバースポンサー",
+      "typeEn": "SILVER",
+      "layout": "logo",
+      "sponsors": []
+    },
+    {
+      "id": "individual",
+      "type": "個人スポンサー",
+      "typeEn": "INDIVIDUAL",
+      "layout": "avatar",
+      "sponsors": [
+        {
+          "name": "fubuky35",
+          "image": "assets/images/sponsors/fubuky35.jpg",
+          "url": "https://x.com/fubuki35"
+        }
+      ]
+    }
+  ]
+}
