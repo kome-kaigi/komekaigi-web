@@ -373,7 +373,8 @@ a {
 }
 
 .event-eyebrow,
-.join-eyebrow {
+.join-eyebrow,
+.speakers-eyebrow {
     display: inline-flex;
     align-items: center;
     gap: 1rem;
@@ -387,7 +388,8 @@ a {
 }
 
 .event-eyebrow-rule,
-.join-eyebrow-rule {
+.join-eyebrow-rule,
+.speakers-eyebrow-rule {
     display: inline-block;
     width: clamp(36px, 6vw, 60px);
     height: 2px;
@@ -496,6 +498,152 @@ a {
 @media (max-width: 560px) {
     .event-map {
         aspect-ratio: 4 / 3;
+    }
+}
+
+/* ==========================================
+   Speakers
+   ========================================== */
+.speakers {
+    position: relative;
+    z-index: 1;
+    padding: clamp(3.5rem, 8vw, 5.5rem) clamp(1.5rem, 5vw, 3rem);
+    border-top: 1px solid var(--color-line);
+    background: var(--color-paper);
+}
+
+.speakers-inner {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.speaker-list {
+    display: grid;
+}
+
+.speaker {
+    display: grid;
+    grid-template-columns: clamp(140px, 22vw, 200px) 1fr;
+    align-items: start;
+    gap: clamp(1.5rem, 4vw, 2.5rem);
+    padding: clamp(2rem, 4vw, 2.75rem) 0;
+    border-top: 1px solid var(--color-line);
+}
+
+.speaker:last-child {
+    border-bottom: 1px solid var(--color-line);
+}
+
+/* 黄色のブロックをずらして重ね、写真に稲穂色のアクセントを添える */
+.speaker-photo {
+    position: relative;
+    margin: 0 10px 10px 0;
+}
+
+.speaker-photo::before {
+    content: "";
+    position: absolute;
+    inset: 10px -10px -10px 10px;
+    background: var(--color-primary);
+}
+
+.speaker-photo img {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    background: var(--color-paper-soft);
+}
+
+.speaker-body {
+    min-width: 0;
+}
+
+.speaker-type {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.35rem 0.75rem;
+    margin: 0 0 0.9rem;
+}
+
+.speaker-type-en {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-primary-dark);
+}
+
+.speaker-type-ja {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--color-muted);
+}
+
+.speaker-name {
+    margin: 0;
+    font-size: clamp(1.4rem, 3.2vw, 1.75rem);
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: 0.02em;
+    color: var(--color-ink);
+}
+
+.speaker-name-main,
+.speaker-name-sub {
+    display: inline-block;
+}
+
+.speaker-name-main {
+    margin-right: 0.6em;
+}
+
+.speaker-name-sub {
+    font-size: 0.58em;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--color-muted);
+}
+
+.speaker-role {
+    margin: 0.35rem 0 0;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--color-muted);
+}
+
+.speaker-profile {
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px dashed var(--color-line);
+}
+
+.speaker-profile p {
+    margin: 0;
+    font-size: clamp(0.95rem, 2vw, 1rem);
+    line-height: 1.95;
+    color: var(--color-ink);
+    opacity: 0.88;
+    /* 最終行に1〜2文字だけ残るのを避ける(対応ブラウザのみ) */
+    text-wrap: pretty;
+}
+
+.speaker-profile p + p {
+    margin-top: 0.85em;
+}
+
+@media (max-width: 560px) {
+    .speaker {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .speaker-photo {
+        width: 160px;
     }
 }
 
