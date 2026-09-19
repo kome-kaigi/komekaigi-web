@@ -25,7 +25,7 @@
         return node;
     };
 
-    const createSponsor = (sponsor, layout) => {
+    const createSponsor = (sponsor, layout, showName) => {
         // url が空ならリンクにしない
         const hasLink = typeof sponsor.url === 'string' && sponsor.url.trim() !== '';
         const item = hasLink ? el('a', 'sponsor') : el('div', 'sponsor');
@@ -43,8 +43,9 @@
         media.appendChild(img);
         item.appendChild(media);
 
-        // 企業ロゴは画像内に社名が含まれるため、名前はアイコン表示のときだけ出す
-        if (layout === 'avatar') {
+        // 企業ロゴは画像内に社名が含まれるため、名前はアイコン表示のときだけ出す。
+        // プランに showName: true を指定すると、ロゴ表示でも名前を添える。
+        if (layout === 'avatar' || showName) {
             item.appendChild(el('span', 'sponsor-name', sponsor.name));
         }
 
@@ -68,7 +69,7 @@
         block.appendChild(heading);
 
         const grid = el('div', 'sponsor-grid');
-        sponsors.forEach((sponsor) => grid.appendChild(createSponsor(sponsor, layout)));
+        sponsors.forEach((sponsor) => grid.appendChild(createSponsor(sponsor, layout, plan.showName === true)));
         block.appendChild(grid);
 
         return block;
