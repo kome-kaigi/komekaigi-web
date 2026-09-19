@@ -45,6 +45,20 @@
       ]
     },
     {
+      "id": "tool",
+      "type": "ツールスポンサー",
+      "typeEn": "TOOL",
+      "layout": "logo",
+      "showName": true,
+      "sponsors": [
+        {
+          "name": "esa",
+          "image": "assets/images/sponsors/esa.png",
+          "url": "https://esa.io"
+        }
+      ]
+    },
+    {
       "id": "individual",
       "type": "個人スポンサー",
       "typeEn": "INDIVIDUAL",

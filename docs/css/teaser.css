@@ -889,8 +889,16 @@ a {
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 }
 
-.sponsor-plan-silver .sponsor-grid {
+.sponsor-plan-silver .sponsor-grid,
+.sponsor-plan-tool .sponsor-grid {
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+}
+
+/* ロゴ表示でも名前を出すプラン(ツールスポンサーなど)の名前は少し控えめに */
+.sponsor-plan-logo .sponsor-name {
+    margin-top: 0.6rem;
+    font-size: 0.82rem;
+    color: var(--color-muted);
 }
 
 .sponsor-plan-logo .sponsor-media {
@@ -966,7 +974,8 @@ a.sponsor:hover .sponsor-name {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
 
-    .sponsor-plan-silver .sponsor-grid {
+    .sponsor-plan-silver .sponsor-grid,
+    .sponsor-plan-tool .sponsor-grid {
         grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     }
 
