@@ -1,18 +1,48 @@
 {
   "plans": [
     {
+      "id": "platinum",
+      "type": "プラチナスポンサー",
+      "typeEn": "PLATINUM",
+      "layout": "logo",
+      "sponsors": [
+        {
+          "name": "株式会社ベネフィット・ワン",
+          "image": "assets/images/sponsors/benefit-one.jpg",
+          "url": "https://corp.benefit-one.co.jp/"
+        },
+        {
+          "name": "株式会社メンバーズ デブオプスリードカンパニー",
+          "image": "assets/images/sponsors/members-devopslead.png",
+          "url": "https://www.members-devopslead.com/"
+        }
+      ]
+    },
+    {
       "id": "gold",
       "type": "ゴールドスポンサー",
       "typeEn": "GOLD",
       "layout": "logo",
-      "sponsors": []
+      "sponsors": [
+        {
+          "name": "株式会社サーバーワークス",
+          "image": "assets/images/sponsors/serverworks.png",
+          "url": "https://www.serverworks.co.jp/"
+        }
+      ]
     },
     {
       "id": "silver",
       "type": "シルバースポンサー",
       "typeEn": "SILVER",
       "layout": "logo",
-      "sponsors": []
+      "sponsors": [
+        {
+          "name": "株式会社SmartHR",
+          "image": "assets/images/sponsors/smarthr.png",
+          "url": "https://smarthr.co.jp/"
+        }
+      ]
     },
     {
       "id": "individual",

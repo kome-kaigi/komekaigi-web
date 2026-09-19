@@ -870,14 +870,24 @@ a {
     gap: 1rem;
 }
 
+/* プラチナ(特大) > ゴールド(大) > シルバー(中) の順にカードを大きくする */
+.sponsor-plan-platinum .sponsor-grid {
+    grid-template-columns: 1fr;
+}
+
 .sponsor-plan-gold .sponsor-grid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+
+.sponsor-plan-silver .sponsor-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
 .sponsor-plan-logo .sponsor-media {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9;
+    /* 企業ロゴは横長が多いため、枠も横長にして余白を抑える */
+    aspect-ratio: 3 / 1;
     background: #fff;
     border: 1px solid var(--color-line);
     transition: border-color 0.2s ease;
@@ -941,8 +951,18 @@ a.sponsor:hover .sponsor-name {
         grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
     }
 
+    .sponsor-plan-platinum .sponsor-grid,
     .sponsor-plan-gold .sponsor-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* 1カラムになる幅でも、プラチナとゴールドの大小が分かるようにする */
+    .sponsor-plan-gold .sponsor-grid {
+        max-width: 86%;
+    }
+
+    .sponsor-plan-silver .sponsor-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
     }
 
     .sponsor-plan-avatar .sponsor-grid {
