@@ -7,7 +7,6 @@
     'use strict';
 
     const DATA_URL = 'data/speakers.json';
-    const PLACEHOLDER_IMAGE = 'assets/images/speakers/placeholder.svg';
 
     const section = document.getElementById('speakers');
     const list = section && section.querySelector('.speaker-list');
@@ -33,14 +32,11 @@
 
         const photo = el('div', 'speaker-photo');
         const img = el('img');
-        img.src = speaker.image || PLACEHOLDER_IMAGE;
+        if (speaker.image) img.src = speaker.image;
         img.alt = speaker.name || '';
         img.width = 180;
         img.height = 180;
         img.loading = 'lazy';
-        img.addEventListener('error', () => {
-            img.src = PLACEHOLDER_IMAGE;
-        }, { once: true });
         photo.appendChild(img);
 
         const body = el('div', 'speaker-body');
