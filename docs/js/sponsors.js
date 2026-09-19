@@ -3,6 +3,8 @@
  * data/sponsors.json を読み込み #sponsors セクションに描画する。
  * plans はプラン(ゴールド・個人など)ごとの配列で、JSON の並び順に表示する。
  * layout は "logo"(企業ロゴ) または "avatar"(個人アイコン+名前)。
+ * logo で image を省略すると、ロゴと同じ枠に社名だけを組んだテキストカードで表示する
+ * (ロゴ未提供のスポンサーを先に掲載するため)。
  * スポンサーが1件も無い・取得に失敗した場合はセクションとメニュー項目を非表示のままにする。
  */
 (function () {
@@ -35,17 +37,26 @@
             item.rel = 'noopener';
         }
 
+        const hasImage = typeof sponsor.image === 'string' && sponsor.image.trim() !== '';
         const media = el('div', 'sponsor-media');
-        const img = el('img');
-        if (sponsor.image) img.src = sponsor.image;
-        img.alt = sponsor.name || '';
-        img.loading = 'lazy';
-        media.appendChild(img);
+
+        if (hasImage) {
+            const img = el('img');
+            img.src = sponsor.image;
+            img.alt = sponsor.name || '';
+            img.loading = 'lazy';
+            media.appendChild(img);
+        } else {
+            // ロゴ未提供: 枠の中に社名を組んで、ロゴのカードと同じ並びを保つ
+            media.appendChild(el('span', 'sponsor-media-text', sponsor.name));
+        }
+
         item.appendChild(media);
 
         // 企業ロゴは画像内に社名が含まれるため、名前はアイコン表示のときだけ出す。
         // プランに showName: true を指定すると、ロゴ表示でも名前を添える。
-        if (layout === 'avatar' || showName) {
+        // テキストカードは枠内に社名が出ているので、重複させない。
+        if (layout === 'avatar' || (showName && hasImage)) {
             item.appendChild(el('span', 'sponsor-name', sponsor.name));
         }
 
