@@ -127,9 +127,10 @@
             node.appendChild(createSpeaker(item.speaker));
         }
 
+        // タグは多いとカードが縦に伸びるので、最初の 1 件だけ表示する
         if (isTalk && !isLt && Array.isArray(item.tags) && item.tags.length > 0) {
             const tags = el('ul', 'timetable-item-tags');
-            item.tags.forEach((tag) => tags.appendChild(el('li', null, tag.name)));
+            tags.appendChild(el('li', null, item.tags[0].name));
             node.appendChild(tags);
         }
 
