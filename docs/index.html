@@ -75,6 +75,12 @@
                         <span class="site-menu-arrow" aria-hidden="true">↓</span>
                     </a>
                 </li>
+                <li data-timetable-menu hidden>
+                    <a href="#timetable" data-menu-anchor>
+                        <span>Timetable</span>
+                        <span class="site-menu-arrow" aria-hidden="true">↓</span>
+                    </a>
+                </li>
                 <li>
                     <a href="#join" data-menu-anchor>
                         <span>Join Us</span>
@@ -183,6 +189,24 @@
             </h2>
 
             <div class="speaker-list"></div>
+        </div>
+    </section>
+
+    <!-- Timetable (data/timetable.json から js/timetable.js で描画。データは `make timetable` で fortee から取得) -->
+    <section id="timetable" class="timetable" aria-labelledby="timetable-heading" hidden>
+        <div class="timetable-inner">
+            <h2 id="timetable-heading" class="timetable-eyebrow">
+                <span class="timetable-eyebrow-rule" aria-hidden="true"></span>
+                <span>TIMETABLE</span>
+            </h2>
+
+            <p class="timetable-lead">
+                2026.10.31 SAT — 各トークの詳細は
+                <a href="https://fortee.jp/komekaigi-2026/timetable" target="_blank" rel="noopener">fortee<span aria-hidden="true"> ↗</span></a>
+                でも見られます。
+            </p>
+
+            <div class="timetable-grid"></div>
         </div>
     </section>
 
@@ -299,6 +323,7 @@
     <!-- BudouX: 日本語を文節単位で改行させる -->
     <script src="https://cdn.jsdelivr.net/npm/budoux@0.9.1/bundle/budoux-ja.min.js" defer></script>
     <script src="js/speakers.js" defer></script>
+    <script src="js/timetable.js" defer></script>
     <script src="js/sponsors.js" defer></script>
 </body>
 </html>
