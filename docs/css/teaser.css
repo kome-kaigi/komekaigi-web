@@ -375,6 +375,7 @@ a {
 .event-eyebrow,
 .join-eyebrow,
 .speakers-eyebrow,
+.timetable-eyebrow,
 .sponsors-eyebrow {
     display: inline-flex;
     align-items: center;
@@ -391,6 +392,7 @@ a {
 .event-eyebrow-rule,
 .join-eyebrow-rule,
 .speakers-eyebrow-rule,
+.timetable-eyebrow-rule,
 .sponsors-eyebrow-rule {
     display: inline-block;
     width: clamp(36px, 6vw, 60px);
@@ -1030,6 +1032,324 @@ a.sponsor:hover .sponsor-name {
     .sponsor-plan-avatar .sponsor-media {
         width: 72px;
         height: 72px;
+    }
+}
+
+/* ==========================================
+   Timetable
+   ========================================== */
+.timetable {
+    position: relative;
+    z-index: 1;
+    padding: clamp(3.5rem, 8vw, 5.5rem) clamp(1.5rem, 5vw, 3rem);
+    border-top: 1px solid var(--color-line);
+    background: var(--color-paper);
+}
+
+/* トラックを横に並べるため、他のセクションより広く取る */
+.timetable-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.timetable-eyebrow {
+    margin-bottom: 1.25rem;
+}
+
+.timetable-lead {
+    margin: 0 0 2rem;
+    font-size: 0.92rem;
+    line-height: 1.8;
+    color: var(--color-muted);
+}
+
+.timetable-lead a {
+    color: var(--color-primary-dark);
+    font-weight: 700;
+    border-bottom: 1px solid currentColor;
+}
+
+.timetable-lead a:hover {
+    color: var(--color-ink);
+}
+
+/* 狭い画面: 開始時刻ごとのリスト */
+.timetable-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.6rem;
+}
+
+.timetable-corner,
+.timetable-track-head {
+    display: none;
+}
+
+.timetable-time {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 1.25rem 0 0;
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--color-primary-dark);
+}
+
+.timetable-time::after {
+    content: "";
+    flex: 1 1 auto;
+    height: 1px;
+    background: var(--color-line);
+}
+
+.timetable-time:first-of-type {
+    margin-top: 0;
+}
+
+.timetable-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 0;
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--color-line);
+    border-left: 3px solid var(--color-primary);
+    background: #fff;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+a.timetable-item:hover {
+    border-color: var(--color-primary);
+}
+
+a.timetable-item:hover .timetable-item-title {
+    color: var(--color-primary-dark);
+}
+
+/* 全体セッション(オープニング・講演枠など)は稲穂色の地で目立たせる */
+.timetable-item-slot {
+    justify-content: center;
+    border-left-color: var(--color-primary-dark);
+    background: rgba(250, 190, 0, 0.12);
+}
+
+a.timetable-item-slot:hover {
+    background: rgba(250, 190, 0, 0.2);
+}
+
+/* 休憩系の枠は控えめに */
+.timetable-item-break {
+    border-style: dashed;
+    border-left: 3px solid var(--color-line);
+    background: transparent;
+    color: var(--color-muted);
+}
+
+.timetable-item-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem 0.75rem;
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--color-muted);
+}
+
+.timetable-item-track {
+    font-family: var(--font-sans);
+    letter-spacing: 0.02em;
+}
+
+.timetable-item-badge {
+    padding: 0.05rem 0.4rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--color-ink);
+    background: var(--color-primary);
+}
+
+.timetable-item-title {
+    margin: 0;
+    font-size: 0.98rem;
+    font-weight: 700;
+    line-height: 1.55;
+    color: var(--color-ink);
+    overflow-wrap: anywhere;
+    text-wrap: pretty;
+    transition: color 0.2s ease;
+}
+
+.timetable-item-break .timetable-item-title {
+    font-weight: 500;
+    color: var(--color-muted);
+}
+
+.timetable-speaker {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--color-ink);
+}
+
+.timetable-speaker-avatar {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    overflow: hidden;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    background: var(--color-paper-soft);
+}
+
+.timetable-speaker-avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.timetable-speaker-name {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.timetable-item-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin: 0.1rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.timetable-item-tags li {
+    padding: 0.1rem 0.45rem;
+    font-size: 0.7rem;
+    line-height: 1.5;
+    color: var(--color-muted);
+    border: 1px solid var(--color-line);
+    background: var(--color-paper);
+}
+
+/* LT は詰めて表示する */
+.timetable-item-lt {
+    gap: 0.35rem;
+    padding: 0.6rem 1rem;
+}
+
+.timetable-item-lt .timetable-item-title {
+    font-size: 0.92rem;
+}
+
+.timetable-item-lt .timetable-speaker-avatar {
+    width: 22px;
+    height: 22px;
+}
+
+/* 開催当日、進行中のセッション */
+.timetable-item.is-now {
+    box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+.timetable-item.is-now::after {
+    content: "NOW";
+    position: absolute;
+    top: -0.6rem;
+    right: 0.75rem;
+    padding: 0.05rem 0.45rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--color-ink);
+    background: var(--color-primary);
+}
+
+/* 広い画面: 時刻 × トラックのグリッド */
+@media (min-width: 960px) {
+    .timetable-grid {
+        grid-template-columns: 4rem repeat(var(--track-count, 1), minmax(0, 1fr));
+        gap: 0.5rem 0.75rem;
+    }
+
+    .timetable-corner,
+    .timetable-track-head {
+        display: block;
+        grid-row: 1;
+    }
+
+    .timetable-corner {
+        grid-column: 1;
+    }
+
+    .timetable-track-head {
+        grid-column: var(--col-start);
+        padding: 0 0 0.6rem;
+        border-bottom: 2px solid var(--color-primary);
+    }
+
+    .timetable-track-name {
+        display: block;
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--color-ink);
+    }
+
+    .timetable-track-room {
+        display: block;
+        margin-top: 0.1rem;
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        color: var(--color-muted);
+    }
+
+    .timetable-time {
+        grid-column: 1;
+        grid-row: var(--row-start);
+        align-self: start;
+        margin: 0;
+        padding-top: 0.85rem;
+        font-size: 0.85rem;
+    }
+
+    .timetable-time::after {
+        display: none;
+    }
+
+    .timetable-item {
+        grid-row: var(--row-start) / var(--row-end);
+        grid-column: var(--col-start) / var(--col-end);
+    }
+
+    /* トラックは列見出しで分かるので、カード内のトラック名は省く */
+    .timetable-item-track {
+        display: none;
+    }
+
+    /* 横に広げた全体セッションは中央寄せで1行に収める */
+    .timetable-item-wide {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-start;
+        column-gap: 1.25rem;
+    }
+
+    .timetable-item-wide.timetable-item-lt .timetable-item-title {
+        flex: 1 1 20em;
     }
 }
 
