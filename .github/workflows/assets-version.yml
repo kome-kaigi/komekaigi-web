@@ -1,0 +1,23 @@
+name: assets-version
+
+# CSS/JS を変えたのに docs/index.html の ?v= を付け直し忘れると、
+# ブラウザに古い CSS/JS が最大4時間残るため、PR で検知する。
+on:
+  pull_request:
+    paths:
+      - "docs/index.html"
+      - "docs/css/**"
+      - "docs/js/**"
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: make assets
+      - name: ?v= が最新か確認
+        run: |
+          git diff --exit-code docs/index.html || {
+            echo "::error::CSS/JS の ?v= が古いままです。make assets を実行してコミットしてください。"
+            exit 1
+          }
