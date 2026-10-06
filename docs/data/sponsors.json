@@ -26,10 +26,12 @@
       "sponsors": [
         {
           "name": "さくらインターネット株式会社",
+          "image": "assets/images/sponsors/sakura-internet.png",
           "url": "https://www.sakura.ad.jp/"
         },
         {
           "name": "supa, inc.",
+          "image": "assets/images/sponsors/supa.png",
           "url": "https://supa.co.jp"
         },
         {
@@ -78,6 +80,7 @@
       "sponsors": [
         {
           "name": "株式会社DERTA",
+          "image": "assets/images/sponsors/derta.png",
           "url": "https://derta.co.jp/"
         }
       ]

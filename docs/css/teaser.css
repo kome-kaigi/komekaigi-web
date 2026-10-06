@@ -897,13 +897,14 @@ a {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
-.sponsor-plan-gold .sponsor-grid {
+.sponsor-plan-gold .sponsor-grid,
+.sponsor-plan-accounting .sponsor-grid {
+    /* 会計協力はゴールド相当のため、ゴールドと同じ大きさで表示する */
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 }
 
 .sponsor-plan-silver .sponsor-grid,
-.sponsor-plan-tool .sponsor-grid,
-.sponsor-plan-accounting .sponsor-grid {
+.sponsor-plan-tool .sponsor-grid {
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
 }
 
@@ -959,7 +960,8 @@ a {
     font-size: 1.05rem;
 }
 
-.sponsor-plan-gold .sponsor-media-text {
+.sponsor-plan-gold .sponsor-media-text,
+.sponsor-plan-accounting .sponsor-media-text {
     font-size: 0.95rem;
 }
 
@@ -1014,13 +1016,13 @@ a.sponsor:hover .sponsor-name {
         max-width: 240px;
     }
 
-    .sponsor-plan-gold .sponsor-grid {
+    .sponsor-plan-gold .sponsor-grid,
+    .sponsor-plan-accounting .sponsor-grid {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
 
     .sponsor-plan-silver .sponsor-grid,
-    .sponsor-plan-tool .sponsor-grid,
-    .sponsor-plan-accounting .sponsor-grid {
+    .sponsor-plan-tool .sponsor-grid {
         grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     }
 
@@ -1030,7 +1032,8 @@ a.sponsor:hover .sponsor-name {
         font-size: 0.72rem;
     }
 
-    .sponsor-plan-gold .sponsor-media-text {
+    .sponsor-plan-gold .sponsor-media-text,
+    .sponsor-plan-accounting .sponsor-media-text {
         font-size: 0.8rem;
     }
 
