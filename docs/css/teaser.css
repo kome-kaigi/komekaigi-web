@@ -386,7 +386,8 @@ a {
 .join-eyebrow,
 .speakers-eyebrow,
 .timetable-eyebrow,
-.sponsors-eyebrow {
+.sponsors-eyebrow,
+.partner-eyebrow {
     display: inline-flex;
     align-items: center;
     gap: 1rem;
@@ -403,7 +404,8 @@ a {
 .join-eyebrow-rule,
 .speakers-eyebrow-rule,
 .timetable-eyebrow-rule,
-.sponsors-eyebrow-rule {
+.sponsors-eyebrow-rule,
+.partner-eyebrow-rule {
     display: inline-block;
     width: clamp(36px, 6vw, 60px);
     height: 2px;
@@ -1374,6 +1376,58 @@ button:focus-visible {
     outline: 2px solid var(--color-primary-dark);
     outline-offset: 3px;
     border-radius: 2px;
+}
+
+/* ==========================================
+   Partner
+   スポンサーとは別枠で、相互にロゴを掲載し合う連携イベントを紹介する
+   ========================================== */
+.partner {
+    position: relative;
+    z-index: 1;
+    padding: clamp(3.5rem, 8vw, 5.5rem) clamp(1.5rem, 5vw, 3rem);
+    border-top: 1px solid var(--color-line);
+}
+
+.partner-inner {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+/* 協賛ではなく連携であることを、英字見出しに日本語を添えて示す */
+.partner-eyebrow {
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+}
+
+.partner-eyebrow-ja {
+    font-family: var(--font-sans);
+    font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+    letter-spacing: 0.08em;
+    color: var(--color-ink);
+    opacity: 0.75;
+}
+
+/* 横長ロゴを白地の枠に収める。スポンサーより控えめな大きさにする */
+.partner-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 320px;
+    padding: 1.75rem 1.5rem;
+    background: #fff;
+    border: 1px solid var(--color-line);
+    transition: border-color 0.2s ease;
+}
+
+.partner-logo:hover {
+    border-color: var(--color-primary);
+}
+
+.partner-logo img {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 /* ==========================================
