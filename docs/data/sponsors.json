@@ -49,6 +49,7 @@
       "sponsors": [
         {
           "name": "株式会社コクチョウ",
+          "image": "assets/images/sponsors/kokucho.png",
           "url": "https://kokuchou.net/"
         },
         {
@@ -74,6 +75,19 @@
           "name": "esa",
           "image": "assets/images/sponsors/esa.png",
           "url": "https://esa.io"
+        }
+      ]
+    },
+    {
+      "id": "venue",
+      "type": "会場協力",
+      "typeEn": "VENUE",
+      "layout": "logo",
+      "sponsors": [
+        {
+          "name": "NINNOアカデミア",
+          "image": "assets/images/sponsors/ninno-accademia.jpg",
+          "url": "https://ninno-plaka.com/accademia/"
         }
       ]
     },
