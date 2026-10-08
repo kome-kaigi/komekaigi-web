@@ -1212,7 +1212,12 @@ a.timetable-item-slot:hover {
     font-weight: 700;
     line-height: 1.5;
     color: var(--color-ink);
-    /* --color-primary に白を 15% 混ぜて気持ち明るくする */
+    background: var(--color-primary);
+    transition: background 0.2s ease;
+}
+
+/* hover では --color-primary に白を 15% 混ぜて気持ち明るくする */
+a.timetable-item:hover .timetable-item-cta {
     background: #fbc826;
 }
 
