@@ -5,13 +5,15 @@
  *
  * 広い画面では「時刻 × トラック」のグリッドに配置する。行は各セッションの開始・終了時刻の境界ごとに切り、
  * セッションは開始〜終了の境界までの行をまたぐ。先頭トラックのセッションで、同じ時間帯に他トラックの
- * セッションが無いもの(オープニング・休憩・LT など)は、空いているトラックの列まで横に広げる。
+ * セッションが無いもの(オープニング・休憩・LT など)は、空いているトラックの列まで横に広げる
+ * (広げる先は上書き設定の spanTracks に挙げたトラックに限る)。
  * 狭い画面では CSS でグリッド配置を外し、開始時刻ごとのリストとして表示する。
  * データが無い・取得に失敗した場合はセクションとメニュー項目を非表示のままにする。
  *
  * timetable.json は `make timetable` で上書きされるため、手で設定したい内容は
  * data/timetable_overrides.json に分けて管理する。
  *   items: { "<fortee の uuid>": { title?, url? } } … 枠のタイトル・リンク先を上書きする
+ *   spanTracks: ["トラックA", ...] … 先頭トラックの枠を横に広げてよいトラック名。省略時は全トラック
  */
 (function () {
     'use strict';
@@ -145,6 +147,8 @@
 
     const render = (entries, overrides) => {
         const itemOverrides = (overrides && overrides.items) || {};
+        const spanTracks = overrides && Array.isArray(overrides.spanTracks) ? overrides.spanTracks : null;
+        const canSpanInto = (track) => !spanTracks || spanTracks.includes(splitTrackName(track.name).track);
         const items = entries
             .filter((entry) => entry && entry.starts_at && entry.track)
             .map((entry) => {
@@ -174,10 +178,12 @@
         items.forEach((item) => {
             const index = trackIndex.get(item.track.sort);
             let last = index;
-            // 先頭トラックのセッションは、重なるセッションが無いトラックの列まで広げる
+            // 先頭トラックのセッションは、重なるセッションが無いトラックの列まで広げる。
+            // ハンズオンの部屋など、全体の枠を流さないトラックには広げない
             if (index === 0) {
                 while (
                     last + 1 < tracks.length &&
+                    canSpanInto(tracks[last + 1]) &&
                     !items.some((other) => trackIndex.get(other.track.sort) === last + 1 && overlaps(item, other))
                 ) {
                     last += 1;
