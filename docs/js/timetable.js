@@ -12,7 +12,8 @@
  *
  * timetable.json は `make timetable` で上書きされるため、手で設定したい内容は
  * data/timetable_overrides.json に分けて管理する。
- *   items: { "<fortee の uuid>": { title?, url? } } … 枠のタイトル・リンク先を上書きする
+ *   items: { "<fortee の uuid>": { title?, url?, cta? } } … 枠のタイトル・リンク先を上書きする。
+ *     cta を書くと、タイトルの下に「申し込みはこちら」のような案内を表示する
  *   spanTracks: ["トラックA", ...] … 先頭トラックの枠を横に広げてよいトラック名。省略時は全トラック
  */
 (function () {
@@ -130,6 +131,12 @@
         const title = el(isTalk ? 'h3' : 'p', 'timetable-item-title');
         title.appendChild(phrase(item.title));
         node.appendChild(title);
+
+        if (href && item.cta) {
+            const cta = el('p', 'timetable-item-cta', item.cta);
+            if (isExternal) cta.appendChild(el('span', null, ' ↗')).setAttribute('aria-hidden', 'true');
+            node.appendChild(cta);
+        }
 
         if (isTalk && item.speaker) {
             node.appendChild(createSpeaker(item.speaker));
