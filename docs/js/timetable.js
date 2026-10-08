@@ -45,7 +45,18 @@
     };
 
     // BudouX の <budoux-ja> で包み、文節の途中で改行されないようにする。
-    const phrase = (text) => el('budoux-ja', null, text);
+    // BudouX は「学ぶプロンプトインジェクション実践」のような長いカタカナ語を含む部分を 1 つの文節に
+    // まとめてしまい、列に収まらず単語の途中で折り返されるため、ひらがな→カタカナ・カタカナ→漢字の
+    // 切り替わりにも <wbr> で改行してよい位置を足す。「データセンター化」のような 1 文字の接尾辞の前では区切らない。
+    const SCRIPT_BOUNDARY = /(?<=[ぁ-ゟ])(?=[ァ-ヿ])|(?<=[ァ-ヿ])(?=[一-鿿々]{2})/;
+    const phrase = (text) => {
+        const node = el('budoux-ja');
+        String(text).split(SCRIPT_BOUNDARY).forEach((part, i) => {
+            if (i > 0) node.appendChild(el('wbr'));
+            node.append(part);
+        });
+        return node;
+    };
 
     // 表示は会場(日本時間)の時刻に揃える
     const timeFormat = new Intl.DateTimeFormat('ja-JP', {
