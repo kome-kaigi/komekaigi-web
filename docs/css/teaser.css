@@ -1213,12 +1213,11 @@ a.timetable-item-slot:hover {
     line-height: 1.5;
     color: var(--color-ink);
     background: var(--color-primary);
-    transition: color 0.2s ease, background 0.2s ease;
+    transition: color 0.2s ease;
 }
 
 a.timetable-item:hover .timetable-item-cta {
     color: #fff;
-    background: var(--color-primary-dark);
 }
 
 .timetable-item-break .timetable-item-title {
