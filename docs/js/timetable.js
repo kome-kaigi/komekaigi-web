@@ -8,11 +8,16 @@
  * セッションが無いもの(オープニング・休憩・LT など)は、空いているトラックの列まで横に広げる。
  * 狭い画面では CSS でグリッド配置を外し、開始時刻ごとのリストとして表示する。
  * データが無い・取得に失敗した場合はセクションとメニュー項目を非表示のままにする。
+ *
+ * timetable.json は `make timetable` で上書きされるため、手で設定したい内容は
+ * data/timetable_overrides.json に分けて管理する。
+ *   items: { "<fortee の uuid>": { title?, url? } } … 枠のタイトル・リンク先を上書きする
  */
 (function () {
     'use strict';
 
     const DATA_URL = 'data/timetable.json';
+    const OVERRIDES_URL = 'data/timetable_overrides.json';
 
     // トップページのスピーカー紹介へリンクする枠
     const SPEAKER_SLOT_TITLES = ['基調講演', '招待講演'];
@@ -89,7 +94,8 @@
         const isLt = isTalk && item.length_min <= LT_MAX_MINUTES;
         const isBreak = !isTalk && BREAK_SLOT_TITLES.includes(item.title);
         const speakerLink = !isTalk && SPEAKER_SLOT_TITLES.includes(item.title) ? '#speakers' : null;
-        const href = isTalk ? item.url : speakerLink;
+        const href = item.url || speakerLink;
+        const isExternal = Boolean(href) && /^https?:\/\//.test(href);
 
         const classes = ['timetable-item', isTalk ? 'timetable-item-talk' : 'timetable-item-slot'];
         if (isLt) classes.push('timetable-item-lt');
@@ -100,7 +106,7 @@
         const node = el(href ? 'a' : 'div', classes.join(' '));
         if (href) {
             node.href = href;
-            if (isTalk) {
+            if (isExternal) {
                 node.target = '_blank';
                 node.rel = 'noopener';
             }
@@ -137,12 +143,18 @@
         return node;
     };
 
-    const render = (entries) => {
+    const render = (entries, overrides) => {
+        const itemOverrides = (overrides && overrides.items) || {};
         const items = entries
             .filter((entry) => entry && entry.starts_at && entry.track)
             .map((entry) => {
                 const start = Date.parse(entry.starts_at);
-                return { ...entry, start, end: start + (entry.length_min || 0) * 60 * 1000 };
+                return {
+                    ...entry,
+                    ...itemOverrides[entry.uuid],
+                    start,
+                    end: start + (entry.length_min || 0) * 60 * 1000,
+                };
             })
             .filter((item) => !Number.isNaN(item.start))
             .sort((a, b) => a.start - b.start || a.track.sort - b.track.sort);
@@ -208,14 +220,22 @@
         if (menuItem) menuItem.hidden = false;
     };
 
-    fetch(DATA_URL)
-        .then((response) => {
+    const fetchJson = (url) =>
+        fetch(url).then((response) => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             return response.json();
-        })
-        .then((data) => render(data.timetable || []))
+        });
+
+    // 上書き設定が読めなくても、タイムテーブル自体は表示する
+    const overridesPromise = fetchJson(OVERRIDES_URL).catch((error) => {
+        console.error('タイムテーブル上書き設定の取得エラー:', error);
+        return {};
+    });
+
+    Promise.all([fetchJson(DATA_URL), overridesPromise])
+        .then(([data, overrides]) => render(data.timetable || [], overrides))
         .catch((error) => {
             console.error('タイムテーブルデータの取得エラー:', error);
         });
