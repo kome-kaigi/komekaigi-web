@@ -1213,13 +1213,12 @@ a.timetable-item-slot:hover {
     line-height: 1.5;
     color: var(--color-ink);
     background: var(--color-primary);
-    transition: color 0.2s ease, background 0.2s ease;
+    transition: background 0.2s ease;
 }
 
-/* 白文字が読めるよう、沈みすぎない程度にオレンジ寄りの山吹色にする */
+/* hover では明るいオレンジにして、文字は黒系のまま読みやすくする */
 a.timetable-item:hover .timetable-item-cta {
-    color: #fff;
-    background: #f08c00;
+    background: #ffa53a;
 }
 
 .timetable-item-break .timetable-item-title {
