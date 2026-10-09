@@ -36,7 +36,7 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Merriweather:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap"
           rel="stylesheet"/>
 
-    <link rel="stylesheet" href="css/teaser.css?v=b16a9027"/>
+    <link rel="stylesheet" href="css/teaser.css?v=fccf7ff3"/>
 </head>
 <body>
     <!-- Header -->
@@ -202,7 +202,7 @@
                    rel="noopener">
                     <span class="join-status join-status-open">[ OPEN ]</span>
                     <span class="join-label">
-                        <span class="join-label-title">一般参加申込</span>
+                        <span class="join-label-title"><budoux-ja>一般参加・<wbr>ハンズオン申込</budoux-ja></span>
                         <span class="join-label-sub">募集中</span>
                     </span>
                     <span class="join-arrow" aria-hidden="true">↗</span>
@@ -245,7 +245,7 @@
         </div>
     </section>
 
-    <!-- Timetable (data/timetable.json から js/timetable.js で描画。データは `make timetable` で fortee から取得) -->
+    <!-- Timetable (data/timetable.json から js/timetable.js で描画。データは `make timetable` で fortee から取得。手動の上書きは data/timetable_overrides.json) -->
     <section id="timetable" class="timetable" aria-labelledby="timetable-heading" hidden>
         <div class="timetable-inner">
             <h2 id="timetable-heading" class="timetable-eyebrow">
@@ -352,7 +352,7 @@
     <!-- BudouX: 日本語を文節単位で改行させる -->
     <script src="https://cdn.jsdelivr.net/npm/budoux@0.9.1/bundle/budoux-ja.min.js" defer></script>
     <script src="js/speakers.js?v=a2d2f5fd" defer></script>
-    <script src="js/timetable.js?v=441e6849" defer></script>
+    <script src="js/timetable.js?v=3843eab2" defer></script>
     <script src="js/sponsors.js?v=91fa7b36" defer></script>
 </body>
 </html>

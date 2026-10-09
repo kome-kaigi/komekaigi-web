@@ -1203,6 +1203,24 @@ a.timetable-item-slot:hover {
     transition: color 0.2s ease;
 }
 
+/* 申し込みページなどへの案内 */
+.timetable-item-cta {
+    align-self: flex-start;
+    margin: 0.2rem 0 0;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--color-ink);
+    background: var(--color-primary);
+    transition: background 0.2s ease;
+}
+
+/* hover では --color-primary に白を 15% 混ぜて気持ち明るくする */
+a.timetable-item:hover .timetable-item-cta {
+    background: #fbc826;
+}
+
 .timetable-item-break .timetable-item-title {
     font-weight: 500;
     color: var(--color-muted);

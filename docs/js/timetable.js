@@ -5,14 +5,22 @@
  *
  * 広い画面では「時刻 × トラック」のグリッドに配置する。行は各セッションの開始・終了時刻の境界ごとに切り、
  * セッションは開始〜終了の境界までの行をまたぐ。先頭トラックのセッションで、同じ時間帯に他トラックの
- * セッションが無いもの(オープニング・休憩・LT など)は、空いているトラックの列まで横に広げる。
+ * セッションが無いもの(オープニング・休憩・LT など)は、空いているトラックの列まで横に広げる
+ * (広げる先は上書き設定の spanTracks に挙げたトラックに限る)。
  * 狭い画面では CSS でグリッド配置を外し、開始時刻ごとのリストとして表示する。
  * データが無い・取得に失敗した場合はセクションとメニュー項目を非表示のままにする。
+ *
+ * timetable.json は `make timetable` で上書きされるため、手で設定したい内容は
+ * data/timetable_overrides.json に分けて管理する。
+ *   items: { "<fortee の uuid>": { title?, url?, cta? } } … 枠のタイトル・リンク先を上書きする。
+ *     cta を書くと、タイトルの下に「申し込みはこちら」のような案内を表示する
+ *   spanTracks: ["トラックA", ...] … 先頭トラックの枠を横に広げてよいトラック名。省略時は全トラック
  */
 (function () {
     'use strict';
 
     const DATA_URL = 'data/timetable.json';
+    const OVERRIDES_URL = 'data/timetable_overrides.json';
 
     // トップページのスピーカー紹介へリンクする枠
     const SPEAKER_SLOT_TITLES = ['基調講演', '招待講演'];
@@ -37,7 +45,18 @@
     };
 
     // BudouX の <budoux-ja> で包み、文節の途中で改行されないようにする。
-    const phrase = (text) => el('budoux-ja', null, text);
+    // BudouX は「学ぶプロンプトインジェクション実践」のような長いカタカナ語を含む部分を 1 つの文節に
+    // まとめてしまい、列に収まらず単語の途中で折り返されるため、ひらがな→カタカナ・カタカナ→漢字の
+    // 切り替わりにも <wbr> で改行してよい位置を足す。「データセンター化」のような 1 文字の接尾辞の前では区切らない。
+    const SCRIPT_BOUNDARY = /(?<=[\u3041-\u309F])(?=[\u30A1-\u30FF])|(?<=[\u30A1-\u30FF])(?=[\u4E00-\u9FFF\u3005]{2})/;
+    const phrase = (text) => {
+        const node = el('budoux-ja');
+        String(text).split(SCRIPT_BOUNDARY).forEach((part, i) => {
+            if (i > 0) node.appendChild(el('wbr'));
+            node.append(part);
+        });
+        return node;
+    };
 
     // 表示は会場(日本時間)の時刻に揃える
     const timeFormat = new Intl.DateTimeFormat('ja-JP', {
@@ -89,7 +108,8 @@
         const isLt = isTalk && item.length_min <= LT_MAX_MINUTES;
         const isBreak = !isTalk && BREAK_SLOT_TITLES.includes(item.title);
         const speakerLink = !isTalk && SPEAKER_SLOT_TITLES.includes(item.title) ? '#speakers' : null;
-        const href = isTalk ? item.url : speakerLink;
+        const href = item.url || speakerLink;
+        const isExternal = Boolean(href) && /^https?:\/\//.test(href);
 
         const classes = ['timetable-item', isTalk ? 'timetable-item-talk' : 'timetable-item-slot'];
         if (isLt) classes.push('timetable-item-lt');
@@ -100,7 +120,7 @@
         const node = el(href ? 'a' : 'div', classes.join(' '));
         if (href) {
             node.href = href;
-            if (isTalk) {
+            if (isExternal) {
                 node.target = '_blank';
                 node.rel = 'noopener';
             }
@@ -123,6 +143,12 @@
         title.appendChild(phrase(item.title));
         node.appendChild(title);
 
+        if (href && item.cta) {
+            const cta = el('p', 'timetable-item-cta', item.cta);
+            if (isExternal) cta.appendChild(el('span', null, ' ↗')).setAttribute('aria-hidden', 'true');
+            node.appendChild(cta);
+        }
+
         if (isTalk && item.speaker) {
             node.appendChild(createSpeaker(item.speaker));
         }
@@ -137,12 +163,20 @@
         return node;
     };
 
-    const render = (entries) => {
+    const render = (entries, overrides) => {
+        const itemOverrides = (overrides && overrides.items) || {};
+        const spanTracks = overrides && Array.isArray(overrides.spanTracks) ? overrides.spanTracks : null;
+        const canSpanInto = (track) => !spanTracks || spanTracks.includes(splitTrackName(track.name).track);
         const items = entries
             .filter((entry) => entry && entry.starts_at && entry.track)
             .map((entry) => {
                 const start = Date.parse(entry.starts_at);
-                return { ...entry, start, end: start + (entry.length_min || 0) * 60 * 1000 };
+                return {
+                    ...entry,
+                    ...itemOverrides[entry.uuid],
+                    start,
+                    end: start + (entry.length_min || 0) * 60 * 1000,
+                };
             })
             .filter((item) => !Number.isNaN(item.start))
             .sort((a, b) => a.start - b.start || a.track.sort - b.track.sort);
@@ -162,10 +196,12 @@
         items.forEach((item) => {
             const index = trackIndex.get(item.track.sort);
             let last = index;
-            // 先頭トラックのセッションは、重なるセッションが無いトラックの列まで広げる
+            // 先頭トラックのセッションは、重なるセッションが無いトラックの列まで広げる。
+            // ハンズオンの部屋など、全体の枠を流さないトラックには広げない
             if (index === 0) {
                 while (
                     last + 1 < tracks.length &&
+                    canSpanInto(tracks[last + 1]) &&
                     !items.some((other) => trackIndex.get(other.track.sort) === last + 1 && overlaps(item, other))
                 ) {
                     last += 1;
@@ -208,14 +244,22 @@
         if (menuItem) menuItem.hidden = false;
     };
 
-    fetch(DATA_URL)
-        .then((response) => {
+    const fetchJson = (url) =>
+        fetch(url).then((response) => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             return response.json();
-        })
-        .then((data) => render(data.timetable || []))
+        });
+
+    // 上書き設定が読めなくても、タイムテーブル自体は表示する
+    const overridesPromise = fetchJson(OVERRIDES_URL).catch((error) => {
+        console.error('タイムテーブル上書き設定の取得エラー:', error);
+        return {};
+    });
+
+    Promise.all([fetchJson(DATA_URL), overridesPromise])
+        .then(([data, overrides]) => render(data.timetable || [], overrides))
         .catch((error) => {
             console.error('タイムテーブルデータの取得エラー:', error);
         });

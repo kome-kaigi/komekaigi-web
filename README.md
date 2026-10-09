@@ -9,6 +9,9 @@ fortee 側でタイムテーブルを更新したら、以下を実行して JSO
 make timetable
 ```
 
+`docs/data/timetable.json` は `make timetable` で丸ごと上書きされるため、手で設定したい内容（枠のリンク先やタイトルなど）は
+`docs/data/timetable_overrides.json` に分けて管理しています。`items` に fortee の枠の `uuid` をキーとして `title` / `url` を書くと上書きされます。`cta` を書くと、リンク付きの枠に「申し込みはこちら」のような案内を表示します。
+
 `make serve` で `docs/` を http://localhost:8000 で確認できます。
 
 ## CSS/JS を変更したとき
