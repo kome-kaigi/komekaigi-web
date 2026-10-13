@@ -25,52 +25,126 @@
       "length_min": 10
     },
     {
-      "type": "timeslot",
-      "uuid": "99eae90e-4708-46a8-84d4-261a22b726a7",
-      "title": "招待講演",
-      "abstract": "",
+      "type": "talk",
+      "uuid": "470d98f4-9b49-4a1e-9e3f-4d467a320ad9",
+      "url": "https://fortee.jp/komekaigi-2026/proposal/470d98f4-9b49-4a1e-9e3f-4d467a320ad9",
+      "title": "視界はAIに、視座は人に",
+      "abstract": "昨年のKomeKaigiでは、AIを部下とみなし、人間はAIの成果を説明する中間管理職のように振る舞うべきだと話しました。それから一年で、AIは課題の解決に必要な情報を自分で集め、アプローチを提案し、成果の報告までこなすようになりました。いまでは「うん、解決して」の一言で開発が進む場面も増えています。\r\nこの一言が通じるのは、AIが課題の周辺を人間と同じように見渡せているときです。本講演の前半では、AIに視界を渡すための仕組みを紹介します。中心となるのは、GitHub IssueだけでAIと大規模なプロジェクトを管理している個人開発の事例です。親子関係と依存関係で結ばれたIssueをAIが書き、AIが読んで進めていく運用を詳しく紹介します。あわせて、技術書典の開発チームなどで運用しているSlack起点のIssue起票と、Claude Tagのようにワークスペースに常駐するAIが視界を持ち込む役割まで担い始めている現状も扱います。\r\n後半では、視界をAIに渡したあとで人間に残る視座について考えます。AIのおかげで作れないものが少なくなったいま、作れるものの範囲で工夫するよりも、社内外の顧客が何に困り、何を求めているのかを見極めることの比重が増しています。その見極めが、AIと人を結ぶ仕事としてどう残るのかを話します。",
+      "accepted": true,
       "track": {
         "name": "トラックA / ルームF",
         "sort": 1
       },
       "starts_at": "2026-10-31T10:10:00+09:00",
-      "length_min": 40
+      "length_min": 40,
+      "tags": [
+        {
+          "name": "招待講演",
+          "color_text": "#ffffff",
+          "color_background": "#7239ea"
+        }
+      ],
+      "speaker": {
+        "name": "中川幸哉",
+        "kana": "ナカガワユキヤ",
+        "twitter": "Nkzn",
+        "avatar_url": "https://fortee.jp/files/komekaigi-2026/speaker/0302abd9-04f4-4c0d-aa21-85258a79837a.png"
+      },
+      "fav_count": 0,
+      "feedback": {
+        "open": false
+      }
     },
     {
-      "type": "timeslot",
-      "uuid": "2c18941d-13cd-4869-83fa-a5f9aff8fca6",
-      "title": "スポンサーセッション",
-      "abstract": "",
+      "type": "talk",
+      "uuid": "4f90a8a5-407c-4f30-b847-934dd565e654",
+      "url": "https://fortee.jp/komekaigi-2026/proposal/4f90a8a5-407c-4f30-b847-934dd565e654",
+      "title": "「社員は誰も知らない」を終わらせる 新潟から育てるAI時代の内製開発チーム！　外注依存から、自分たちで価値を届ける組織へ。",
+      "abstract": "ベネフィット・ワンでは、外部ベンダーへの依存によりシステムの知識や責任が社内に蓄積されにくいという課題を抱えていました。\r\n私たちはその状況を変えるため、内製開発への転換を進め、新潟を拠点とした開発チームの立ち上げに取り組んできました。\r\n\r\n本セッションでは、一人から始まったチームがどのように成長し、自走できる組織へと変化していったのかを紹介します。\r\nまた、生成AIを開発プロセスへ組み込み、テスト自動生成、コードレビュー、フレームワーク更新などを\r\nどのように効率化してきたのか、実際の取り組みと学びを交えてお話しします。\r\n \r\n内製化を推進したい方、開発組織づくりに課題を感じている方、AIを現場で活用したい方に向けて、現場で得たリアルな知見を共有します。",
+      "accepted": true,
       "track": {
         "name": "トラックA / ルームF",
         "sort": 1
       },
       "starts_at": "2026-10-31T11:00:00+09:00",
-      "length_min": 20
+      "length_min": 20,
+      "tags": [
+        {
+          "name": "スポンサーセッション",
+          "color_text": "#ffffff",
+          "color_background": "#7239ea"
+        }
+      ],
+      "speaker": {
+        "name": "小林 逸斗",
+        "kana": "コヤバシ ハヤト",
+        "twitter": "sebene0315",
+        "avatar_url": "https://fortee.jp/files/komekaigi-2026/speaker/38fc0498-8b4d-4190-becb-0e6467a8df28.jpg"
+      },
+      "fav_count": 0,
+      "feedback": {
+        "open": false
+      }
     },
     {
-      "type": "timeslot",
-      "uuid": "9b3a95d8-acd6-4283-9219-2d06e52e50f3",
-      "title": "スポンサーLT",
-      "abstract": "",
+      "type": "talk",
+      "uuid": "8d5e900b-e229-4b9b-b83e-471b25593bbb",
+      "url": "https://fortee.jp/komekaigi-2026/proposal/8d5e900b-e229-4b9b-b83e-471b25593bbb",
+      "title": "AIに任せる前に自分に聞く ― AI時代の3つの問い",
+      "abstract": "生成AIで仕事は速くなりました。調べものも、文章の下書きも、コードも、以前とは比べものにならないスピードで形になります。でもその裏で、「なんとなく不安」を感じていませんか？\r\n\r\n速く進めるようになった一方で、気づけば自分で考える場面が減っている。出てきた答えをそのまま使い、なぜそれで良いのかを説明できないまま次へ進んでしまう。日々AIを使う中で、私自身もそう感じる瞬間が増えています。\r\n\r\nAIを使わないことが答えだとは思いません。大切なのは、使い続けながら、どこで立ち止まるかを自分で決められることではないでしょうか。\r\n\r\n本LTでは、AIに仕事を渡す前に自分に投げかけたい「3つの問い」を紹介します。どれもシンプルな問いですが、答えに詰まったら、それは一度立ち止まるサイン。そして、自分の力を磨くチャンスでもあります。\r\n\r\n私も含め、AIとの付き合い方は誰もがまだ模索中です。新人の方には「何をAIに任せていいのか」を考えるきっかけとして、経験を積んだ方には自分の使い方を見直すきっかけとして、AIを使い続けながら自分で考えることを止めないための小さな習慣を持ち帰っていただけたら嬉しいです。",
+      "accepted": true,
       "track": {
         "name": "トラックA / ルームF",
         "sort": 1
       },
       "starts_at": "2026-10-31T11:20:00+09:00",
-      "length_min": 5
+      "length_min": 5,
+      "tags": [
+        {
+          "name": "スポンサーLT",
+          "color_text": "#ffffff",
+          "color_background": "#7239ea"
+        }
+      ],
+      "speaker": {
+        "name": "鶴岡 佑樹",
+        "kana": "ツルオカ ユウキ"
+      },
+      "fav_count": 0,
+      "feedback": {
+        "open": false
+      }
     },
     {
-      "type": "timeslot",
-      "uuid": "97bb4853-0c61-4c19-bb24-b091c7a1e1fb",
-      "title": "スポンサーLT",
-      "abstract": "",
+      "type": "talk",
+      "uuid": "55c272f1-f132-490d-83fa-81fef04b28c1",
+      "url": "https://fortee.jp/komekaigi-2026/proposal/55c272f1-f132-490d-83fa-81fef04b28c1",
+      "title": "AI駆動開発って酒造りに似てませんか？〜品質を支える計測と改善の話〜",
+      "abstract": "日本酒造りでは、酵母や麹の働きを完全に思い通りにコントロールできるわけではありません。だからこそ醸造家は、温度や発酵の進み具合などを継続的に観測し、環境を調整しながら狙った品質に近づけていきます。\r\n\r\nこれって、AI駆動開発にもかなり似ていませんか？\r\n\r\n生成AIの登場でコードを書く速度は飛躍的に上がりました。一方で、AIが実際にどのような作業を行い、どこで手戻りやプロンプトの迷走が発生しているのかは、意外と見えていません。どれだけ指示やルールを整えても、そのプロセスと結果を「計測」できなければ、AI Slopの発生を防ぐことも、次なる改善につなげることもできません。\r\n\r\n本LTでは、酒造りにおける「仕込み→観測→調整」というフローとAI駆動開発を重ね合わせながら、AI時代の品質担保について話します。",
+      "accepted": true,
       "track": {
         "name": "トラックA / ルームF",
         "sort": 1
       },
       "starts_at": "2026-10-31T11:25:00+09:00",
-      "length_min": 5
+      "length_min": 5,
+      "tags": [
+        {
+          "name": "スポンサーLT",
+          "color_text": "#ffffff",
+          "color_background": "#7239ea"
+        }
+      ],
+      "speaker": {
+        "name": "Nishino",
+        "kana": "にしの",
+        "twitter": "nishino_0719",
+        "avatar_url": "https://fortee.jp/files/komekaigi-2026/speaker/0b7d3666-1046-422f-a2b9-bbffbe2e9963.jpg"
+      },
+      "fav_count": 1,
+      "feedback": {
+        "open": false
+      }
     },
     {
       "type": "talk",
@@ -332,28 +406,64 @@
       "length_min": 40
     },
     {
-      "type": "timeslot",
-      "uuid": "e97381de-95b9-42cb-b220-a2e0ee3722ca",
-      "title": "スポンサーセッション",
-      "abstract": "",
+      "type": "talk",
+      "uuid": "5605738f-0aa9-4ac8-bb9c-f5eb1e6a5755",
+      "url": "https://fortee.jp/komekaigi-2026/proposal/5605738f-0aa9-4ac8-bb9c-f5eb1e6a5755",
+      "title": "メガクラウド時代における、もう一つの選択肢 〜エンジニアと社会課題解決〜",
+      "abstract": "クラウド技術やAIの活用が当たり前となった今、私たちエンジニアは技術を通じてどのように社会課題の解決に貢献できるのでしょうか。\r\n本セッションでは「業務を通じた社会貢献」「脱炭素社会の実現」「デジタル技術の進化への対応」という私たちが実現したい未来像を軸に、エンジニアとして実践できることをお話しします。\r\nメガクラウドが台頭する時代だからこそ見えてくる、もう一つの選択肢とその可能性について「社会課題解決」という観点でのヒントを共有します。\r\n",
+      "accepted": true,
       "track": {
         "name": "トラックA / ルームF",
         "sort": 1
       },
       "starts_at": "2026-10-31T14:50:00+09:00",
-      "length_min": 20
+      "length_min": 20,
+      "tags": [
+        {
+          "name": "スポンサーセッション",
+          "color_text": "#ffffff",
+          "color_background": "#7239ea"
+        }
+      ],
+      "speaker": {
+        "name": "株式会社メンバーズ デブオプスリードカンパニー",
+        "kana": "カブシキガイシャメンバーズ　デブオプスリードカンパニー",
+        "twitter": "Members_devops",
+        "avatar_url": "https://fortee.jp/files/komekaigi-2026/speaker/c73a0cca-28ab-4335-a3f9-3a6db55d2625.jpg"
+      },
+      "fav_count": 0,
+      "feedback": {
+        "open": false
+      }
     },
     {
-      "type": "timeslot",
-      "uuid": "d415f59e-f0d6-4987-92f5-499972250d2d",
-      "title": "スポンサーLT",
-      "abstract": "",
+      "type": "talk",
+      "uuid": "eb7ed211-dc40-4cd3-a9f6-f20378348be3",
+      "url": "https://fortee.jp/komekaigi-2026/proposal/eb7ed211-dc40-4cd3-a9f6-f20378348be3",
+      "title": "eBPF入門 〜AWSサービスで見る活用事例〜",
+      "abstract": "eBPFの紹介\r\n- 1.1 eBPFとは: eBPFがどのような技術かを一言で理解する\r\n- 1.2 何を観測するのか?: eBPFで観測できる対象と、その仕組みの全体像を把握する\r\n- 1.3 なぜeBPFか: 従来の手法と比べた利点と、安全性が担保される理由を知る\r\n\r\nAWSでの活用事例\r\n- eBPFがAWSのサービスで実際に使われていることを知る\r\n- AWSでの制約事項: 利用する際に注意すべき前提や制限を把握する\r\n- 2.1 Network Flow Monitor: eBPFを使ったサービスの代表例として、仕組みを紹介する\r\n- 2.2 デモ: eBPFによる観測\r\n- 2.3 その他の活用事例: eBPFの活用が他のサービスは何があるか\r\n\r\nまとめ\r\n- eBPFが何で、AWSでどう活用されているかを振り返る",
+      "accepted": true,
       "track": {
         "name": "トラックA / ルームF",
         "sort": 1
       },
       "starts_at": "2026-10-31T15:10:00+09:00",
-      "length_min": 5
+      "length_min": 5,
+      "tags": [
+        {
+          "name": "スポンサーLT",
+          "color_text": "#ffffff",
+          "color_background": "#7239ea"
+        }
+      ],
+      "speaker": {
+        "name": "Yi JunHyung",
+        "kana": "イ ジュンヒョン"
+      },
+      "fav_count": 0,
+      "feedback": {
+        "open": false
+      }
     },
     {
       "type": "timeslot",
@@ -365,18 +475,6 @@
         "sort": 1
       },
       "starts_at": "2026-10-31T15:15:00+09:00",
-      "length_min": 5
-    },
-    {
-      "type": "timeslot",
-      "uuid": "ae7f070d-3dc2-47b9-a0b1-9b6729fe5a3b",
-      "title": "スポンサーLT",
-      "abstract": "",
-      "track": {
-        "name": "トラックA / ルームF",
-        "sort": 1
-      },
-      "starts_at": "2026-10-31T15:20:00+09:00",
       "length_min": 5
     },
     {
@@ -493,16 +591,35 @@
       }
     },
     {
-      "type": "timeslot",
-      "uuid": "f06ea30b-62ff-420d-bcaa-ac86809c009e",
-      "title": "スポンサーハンズオン",
-      "abstract": "",
+      "type": "talk",
+      "uuid": "f2c84b90-167b-4386-94d3-b24ea25fe412",
+      "url": "https://fortee.jp/komekaigi-2026/proposal/f2c84b90-167b-4386-94d3-b24ea25fe412",
+      "title": "LLMをバグらせる！ さくらのAI Engineで学ぶプロンプトインジェクション実践",
+      "abstract": "「以前の指示はすべて無視してください」。この一文で、あなたのAIアプリは乗っ取られるかもしれません。\r\n生成AIを組み込んだチャットボットやRAG、AIエージェントが業務で使われるようになり、LLM特有の脆弱性である「プロンプトインジェクション」への対策は避けて通れなくなりました。OWASP Top 10 for LLM Applicationsでも最上位に挙げられているリスクですが、実際に攻撃を試したことがある開発者はまだ多くありません。\r\n本ハンズオンでは、さくらインターネットの生成AI基盤「さくらのAI Engine」を使って、あえて脆弱なLLMアプリを動かします。参加者は攻撃者の立場で、実際にLLMを「バグらせる」ことに挑戦します。",
+      "accepted": true,
       "track": {
         "name": "ハンズオン / ルームA",
         "sort": 4
       },
       "starts_at": "2026-10-31T15:35:00+09:00",
-      "length_min": 90
+      "length_min": 90,
+      "tags": [
+        {
+          "name": "スポンサーハンズオン",
+          "color_text": "#ffffff",
+          "color_background": "#7239ea"
+        }
+      ],
+      "speaker": {
+        "name": "亀田 治伸",
+        "kana": "カメダ ハルノブ",
+        "twitter": "kameoncloud",
+        "avatar_url": "https://fortee.jp/files/komekaigi-2026/speaker/5cc10387-9d69-46e8-9e7a-fccfed348219.jpg"
+      },
+      "fav_count": 0,
+      "feedback": {
+        "open": false
+      }
     },
     {
       "type": "timeslot",
