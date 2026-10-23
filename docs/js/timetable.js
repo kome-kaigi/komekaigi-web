@@ -28,6 +28,8 @@
     const BREAK_SLOT_TITLES = ['受付', '休憩', '懇親会'];
     // この長さ以下のトークは LT として詰めて表示する
     const LT_MAX_MINUTES = 5;
+    // このタグが付いた LT はスポンサーLTとして通常の LT と区別して表示する
+    const SPONSOR_LT_TAG = 'スポンサーLT';
 
     const section = document.getElementById('timetable');
     const grid = section && section.querySelector('.timetable-grid');
@@ -106,6 +108,7 @@
     const createItem = (item, now) => {
         const isTalk = item.type === 'talk';
         const isLt = isTalk && item.length_min <= LT_MAX_MINUTES;
+        const isSponsorLt = isLt && Array.isArray(item.tags) && item.tags.some((tag) => tag.name === SPONSOR_LT_TAG);
         const isBreak = !isTalk && BREAK_SLOT_TITLES.includes(item.title);
         const speakerLink = !isTalk && SPEAKER_SLOT_TITLES.includes(item.title) ? '#speakers' : null;
         const href = item.url || speakerLink;
@@ -135,7 +138,11 @@
         const time = el('span', 'timetable-item-time');
         time.textContent = `${formatTime(item.start)} – ${formatTime(item.end)}`;
         meta.appendChild(time);
-        if (isLt) meta.appendChild(el('span', 'timetable-item-badge', 'LT'));
+        if (isSponsorLt) {
+            meta.appendChild(el('span', 'timetable-item-badge timetable-item-badge-sponsor', SPONSOR_LT_TAG));
+        } else if (isLt) {
+            meta.appendChild(el('span', 'timetable-item-badge', 'LT'));
+        }
         meta.appendChild(createTrackLabel(item.track));
         node.appendChild(meta);
 
