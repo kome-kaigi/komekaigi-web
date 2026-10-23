@@ -30,6 +30,8 @@
     const LT_MAX_MINUTES = 5;
     // スポンサーLT は短くても LT として詰めず、基調講演やスポンサーセッションと同じ見た目で表示する
     const SPONSOR_LT_TAG = 'スポンサーLT';
+    // スポンサー枠はタイトルの長さで表示の大きさに差が出ないよう、タイトルを 2 行分の高さにそろえる
+    const SPONSOR_TAGS = ['スポンサーセッション', SPONSOR_LT_TAG];
 
     const section = document.getElementById('timetable');
     const grid = section && section.querySelector('.timetable-grid');
@@ -107,7 +109,9 @@
 
     const createItem = (item, now) => {
         const isTalk = item.type === 'talk';
-        const isSponsorLt = Array.isArray(item.tags) && item.tags.some((tag) => tag.name === SPONSOR_LT_TAG);
+        const tagNames = Array.isArray(item.tags) ? item.tags.map((tag) => tag.name) : [];
+        const isSponsorLt = tagNames.includes(SPONSOR_LT_TAG);
+        const isSponsor = isTalk && tagNames.some((name) => SPONSOR_TAGS.includes(name));
         const isLt = isTalk && item.length_min <= LT_MAX_MINUTES && !isSponsorLt;
         const isBreak = !isTalk && BREAK_SLOT_TITLES.includes(item.title);
         const speakerLink = !isTalk && SPEAKER_SLOT_TITLES.includes(item.title) ? '#speakers' : null;
@@ -116,6 +120,7 @@
 
         const classes = ['timetable-item', isTalk ? 'timetable-item-talk' : 'timetable-item-slot'];
         if (isLt) classes.push('timetable-item-lt');
+        if (isSponsor) classes.push('timetable-item-sponsor');
         if (isBreak) classes.push('timetable-item-break');
         if (item.spanned) classes.push('timetable-item-wide');
         if (item.start <= now && now < item.end) classes.push('is-now');
@@ -144,6 +149,8 @@
 
         const title = el(isTalk ? 'h3' : 'p', 'timetable-item-title');
         title.appendChild(phrase(item.title));
+        // 2 行に収まらず省略されたときも、マウスを載せれば全文が読めるようにする
+        if (isSponsor) title.title = item.title;
         node.appendChild(title);
 
         if (href && item.cta) {
