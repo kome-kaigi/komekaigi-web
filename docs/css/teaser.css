@@ -1295,16 +1295,6 @@ a.timetable-item:hover .timetable-item-cta {
     height: 22px;
 }
 
-/* スポンサー枠はタイトルの長さに関わらず同じ高さにそろえる。2 行分の高さを確保し、3 行目以降は省略する */
-.timetable-item-sponsor .timetable-item-title {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    overflow: hidden;
-    min-height: calc(2em * 1.55);
-}
-
 /* 開催当日、進行中のセッション */
 .timetable-item.is-now {
     box-shadow: 0 0 0 2px var(--color-primary);

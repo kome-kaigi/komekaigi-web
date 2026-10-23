@@ -30,7 +30,7 @@
     const LT_MAX_MINUTES = 5;
     // スポンサーLT は短くても LT として詰めず、基調講演やスポンサーセッションと同じ見た目で表示する
     const SPONSOR_LT_TAG = 'スポンサーLT';
-    // スポンサー枠はタイトルの長さで表示の大きさに差が出ないよう、タイトルを 2 行分の高さにそろえる
+    // スポンサー枠は、時刻の横にタイトル、次の行に登壇者とタグを並べて表示する
     const SPONSOR_TAGS = ['スポンサーセッション', SPONSOR_LT_TAG];
 
     const section = document.getElementById('timetable');
@@ -149,8 +149,6 @@
 
         const title = el(isTalk ? 'h3' : 'p', 'timetable-item-title');
         title.appendChild(phrase(item.title));
-        // 2 行に収まらず省略されたときも、マウスを載せれば全文が読めるようにする
-        if (isSponsor) title.title = item.title;
         node.appendChild(title);
 
         if (href && item.cta) {
