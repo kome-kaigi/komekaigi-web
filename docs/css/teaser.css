@@ -1192,13 +1192,6 @@ a.timetable-item-slot:hover {
     background: var(--color-primary);
 }
 
-/* スポンサーLT は通常の LT と色を反転させて区別する */
-.timetable-item-badge-sponsor {
-    letter-spacing: 0.06em;
-    color: #fff;
-    background: var(--color-ink);
-}
-
 .timetable-item-title {
     margin: 0;
     font-size: 0.98rem;
