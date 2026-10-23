@@ -50,7 +50,7 @@
         "twitter": "Nkzn",
         "avatar_url": "https://fortee.jp/files/komekaigi-2026/speaker/0302abd9-04f4-4c0d-aa21-85258a79837a.png"
       },
-      "fav_count": 0,
+      "fav_count": 2,
       "feedback": {
         "open": false
       }
@@ -81,7 +81,7 @@
         "twitter": "sebene0315",
         "avatar_url": "https://fortee.jp/files/komekaigi-2026/speaker/38fc0498-8b4d-4190-becb-0e6467a8df28.jpg"
       },
-      "fav_count": 0,
+      "fav_count": 1,
       "feedback": {
         "open": false
       }
@@ -110,7 +110,7 @@
         "name": "鶴岡 佑樹",
         "kana": "ツルオカ ユウキ"
       },
-      "fav_count": 0,
+      "fav_count": 2,
       "feedback": {
         "open": false
       }
@@ -141,7 +141,7 @@
         "twitter": "nishino_0719",
         "avatar_url": "https://fortee.jp/files/komekaigi-2026/speaker/0b7d3666-1046-422f-a2b9-bbffbe2e9963.jpg"
       },
-      "fav_count": 1,
+      "fav_count": 3,
       "feedback": {
         "open": false
       }
@@ -182,7 +182,7 @@
         "twitter": "avocadoneko",
         "avatar_url": "https://fortee.jp/files/komekaigi-2026/speaker/8c577b28-fd42-4c99-8e24-ebe77adc08a5.jpg"
       },
-      "fav_count": 4,
+      "fav_count": 5,
       "feedback": {
         "open": false
       }
@@ -263,7 +263,7 @@
         "twitter": "ryuguyana",
         "avatar_url": "https://fortee.jp/files/komekaigi-2026/speaker/0af60541-9b60-429d-8211-d0cd2d9b4d9d.jpg"
       },
-      "fav_count": 0,
+      "fav_count": 1,
       "feedback": {
         "open": false
       }
@@ -304,7 +304,7 @@
         "twitter": "ryota1582",
         "avatar_url": "https://fortee.jp/files/komekaigi-2026/speaker/b8804250-eb05-4224-aa67-aa474932b753.jpg"
       },
-      "fav_count": 2,
+      "fav_count": 1,
       "feedback": {
         "open": false
       }
@@ -340,7 +340,7 @@
         "twitter": "kyamamoto9120",
         "avatar_url": "https://fortee.jp/files/komekaigi-2026/speaker/e6262ec3-00e1-441c-ab79-13e8c61d41f2.jpg"
       },
-      "fav_count": 1,
+      "fav_count": 2,
       "feedback": {
         "open": false
       }
@@ -376,7 +376,7 @@
         "twitter": "Sara999M",
         "avatar_url": "https://fortee.jp/files/komekaigi-2026/speaker/d43be70b-ff2f-4161-8e76-ecff501554ab.jpg"
       },
-      "fav_count": 0,
+      "fav_count": 1,
       "feedback": {
         "open": false
       }
@@ -394,16 +394,33 @@
       "length_min": 90
     },
     {
-      "type": "timeslot",
-      "uuid": "2affad55-d448-45ea-8e36-32e1262e0a90",
-      "title": "基調講演",
-      "abstract": "",
+      "type": "talk",
+      "uuid": "f9ec2228-7cb7-4f98-94f9-d8b1ff8cc087",
+      "url": "https://fortee.jp/komekaigi-2026/proposal/f9ec2228-7cb7-4f98-94f9-d8b1ff8cc087",
+      "title": "AIではなく、 人と話そう。",
+      "abstract": "AIではなく、人と話そう。\r\n\r\nAIで、誰でも家は建てられるようになった。だからこそ、100年住める家を建てたい人、建てられる人と話そう。この講演では、AI時代のものづくりを3つの問いで考えます。\r\n\r\n一つ目は「AIがコードを書く時代に、エンジニアの価値はどこに残るのか」。コードは安くなりましたが、データ設計は高いままです。AIは設計の良し悪しを増幅します。酒販店の発注管理を例に、「返信が来ないのが正常系」という業務の事実がシステム全体の設計を決めた話をします。それらしく動くものは誰でも作れます。運用に耐えるソフトウェアをつくる知識こそ、エンジニアが持つドメイン知識です。\r\n\r\n二つ目は「つくるのが安くなったら、何が起きるのか」。地方の現場では、いまも発注の多くがFAXとメールです。世界は断絶されていて、違うのは困りごとの質です。私たちの困りごとは言葉になっていて検索できますが、あちら側の困りごとは業務に溶けていて、本人にも言葉になっていない。だからAIにも聞けません。この人たちは、これまで仕方なく既存のパッケージを使ってきました。高品質なものを低単価で届けられれば、ニッチはもうニッチではなくなり、もっと面白いソフトウェアとサービスが生まれます。\r\n\r\n三つ目は「では、誰と作るのか」。言葉になっていない困りごとは、人と話すことでしか掘り出せません。AI時代の鍵は信頼です。誰と話し、誰と働くかは自分で選び、相手は信頼で自分を選んでくれる。法人も同じです。\r\n\r\nクラフトビールの醸造者であり、ソフトウェアの開発者でもある立場から、「お結びカンファレンス」の会場で、人と人が結ばれる意味を一緒に考えます。",
+      "accepted": true,
       "track": {
         "name": "トラックA / ルームF",
         "sort": 1
       },
       "starts_at": "2026-10-31T14:00:00+09:00",
-      "length_min": 40
+      "length_min": 40,
+      "tags": [
+        {
+          "name": "基調講演",
+          "color_text": "#ffffff",
+          "color_background": "#7239ea"
+        }
+      ],
+      "speaker": {
+        "name": "藤原敬弘",
+        "kana": "フジワラタカヒロ"
+      },
+      "fav_count": 0,
+      "feedback": {
+        "open": false
+      }
     },
     {
       "type": "talk",
@@ -431,7 +448,7 @@
         "twitter": "Members_devops",
         "avatar_url": "https://fortee.jp/files/komekaigi-2026/speaker/c73a0cca-28ab-4335-a3f9-3a6db55d2625.jpg"
       },
-      "fav_count": 0,
+      "fav_count": 1,
       "feedback": {
         "open": false
       }
@@ -460,22 +477,39 @@
         "name": "Yi JunHyung",
         "kana": "イ ジュンヒョン"
       },
-      "fav_count": 0,
+      "fav_count": 1,
       "feedback": {
         "open": false
       }
     },
     {
-      "type": "timeslot",
-      "uuid": "3508447c-8c8e-44dd-8111-fd495282b01d",
-      "title": "スポンサーLT",
-      "abstract": "",
+      "type": "talk",
+      "uuid": "7a5f0da3-9e5f-4095-9a1b-4a4ff24a8c5b",
+      "url": "https://fortee.jp/komekaigi-2026/proposal/7a5f0da3-9e5f-4095-9a1b-4a4ff24a8c5b",
+      "title": "【”地方のお結び”繋がりと独自の強さ】新潟のコミュニティ基盤（お結び）とDX活用を交え、地域DXによる強みと共創の価値を5分で解き明かす。",
+      "abstract": "「労働人口減少や資源不足に直面する地方において、真のブレイクスルーを生むものは何か。」\r\n本講話では、新潟が誇る「お結び（人と人、企業と地域の強い結びつき）」という共創コミュニティ基盤と、現代の強力な道具である「DX（デジタル変革）」を掛け合わせた、地方創生の新しい勝ち筋を紐解きます。\r\n\r\nまた単なる技術導入（IT化）に留まらず、新潟独自の温かい地域コミュニティの繋がりがあってこそ、DXは真価を発揮し、他には真似できない「独自の武器」へと昇華します。アナログな人間関係の深さと、デジタルによる変革力——この二つの融合が地域経済にどのようなイノベーションをもたらすのか。新潟の具体的なコミュニティ実践例を交えながら、これからの地方企業が目指すべき「強みを研ぎ澄ます共創戦略」の全貌を熱量高くお伝えします。",
+      "accepted": true,
       "track": {
         "name": "トラックA / ルームF",
         "sort": 1
       },
       "starts_at": "2026-10-31T15:15:00+09:00",
-      "length_min": 5
+      "length_min": 5,
+      "tags": [
+        {
+          "name": "スポンサーLT",
+          "color_text": "#ffffff",
+          "color_background": "#7239ea"
+        }
+      ],
+      "speaker": {
+        "name": "末吉　拓哉",
+        "kana": "スエヨシ　タクヤ"
+      },
+      "fav_count": 0,
+      "feedback": {
+        "open": false
+      }
     },
     {
       "type": "talk",
@@ -508,7 +542,7 @@
         "twitter": "kazzpapa3",
         "avatar_url": "https://fortee.jp/files/komekaigi-2026/speaker/185b2199-4e3a-4533-8efd-11cdb4ef9351.jpg"
       },
-      "fav_count": 2,
+      "fav_count": 3,
       "feedback": {
         "open": false
       }
@@ -585,7 +619,7 @@
         "twitter": "koitake_",
         "avatar_url": "https://fortee.jp/files/komekaigi-2026/speaker/be05b326-8f6e-4721-9446-1f3881a6a9b4.jpg"
       },
-      "fav_count": 2,
+      "fav_count": 3,
       "feedback": {
         "open": false
       }
@@ -669,7 +703,7 @@
         "twitter": "natty_natty254",
         "avatar_url": "https://fortee.jp/files/komekaigi-2026/speaker/560f627d-3932-43c8-a373-24c278563e48.jpg"
       },
-      "fav_count": 4,
+      "fav_count": 6,
       "feedback": {
         "open": false
       }
@@ -705,7 +739,7 @@
         "twitter": "yakumo_0905",
         "avatar_url": "https://fortee.jp/files/komekaigi-2026/speaker/b99afdb3-e547-4370-ba76-595725f97559.jpg"
       },
-      "fav_count": 1,
+      "fav_count": 2,
       "feedback": {
         "open": false
       }
@@ -777,7 +811,7 @@
         "twitter": "hk_it7",
         "avatar_url": "https://fortee.jp/files/komekaigi-2026/speaker/5dff561d-a8fb-482b-92cc-1746031f6e2e.jpg"
       },
-      "fav_count": 3,
+      "fav_count": 4,
       "feedback": {
         "open": false
       }
@@ -895,7 +929,7 @@
         "twitter": "fubuki35",
         "avatar_url": "https://fortee.jp/files/komekaigi-2026/speaker/616531db-451c-4dbd-a00a-75a44594d8e3.jpg"
       },
-      "fav_count": 0,
+      "fav_count": 1,
       "feedback": {
         "open": false
       }
@@ -936,7 +970,7 @@
         "twitter": "uutan1108",
         "avatar_url": "https://fortee.jp/files/komekaigi-2026/speaker/a72f2682-248b-4878-9212-17848e89f63b.jpg"
       },
-      "fav_count": 1,
+      "fav_count": 3,
       "feedback": {
         "open": false
       }
@@ -977,7 +1011,7 @@
         "twitter": "dachi_023",
         "avatar_url": "https://fortee.jp/files/komekaigi-2026/speaker/3f02f4ce-e98f-4cef-acd7-10b2ebf9267a.jpg"
       },
-      "fav_count": 1,
+      "fav_count": 3,
       "feedback": {
         "open": false
       }
@@ -1018,7 +1052,7 @@
         "twitter": "_ryu1013",
         "avatar_url": "https://fortee.jp/files/komekaigi-2026/speaker/e6318899-cd02-47b0-92ad-348c04952cf1.jpg"
       },
-      "fav_count": 2,
+      "fav_count": 5,
       "feedback": {
         "open": false
       }
@@ -1057,7 +1091,7 @@
         "name": "井上雄策",
         "kana": "イノウエユウサク"
       },
-      "fav_count": 1,
+      "fav_count": 3,
       "feedback": {
         "open": false
       }
@@ -1098,7 +1132,7 @@
         "twitter": "nohikomiso",
         "avatar_url": "https://fortee.jp/files/komekaigi-2026/speaker/8344f2e0-b87d-4c4c-b835-2cf0f51d5875.jpg"
       },
-      "fav_count": 0,
+      "fav_count": 1,
       "feedback": {
         "open": false
       }

@@ -1388,6 +1388,19 @@ a.timetable-item:hover .timetable-item-cta {
     .timetable-item-wide.timetable-item-lt .timetable-item-title {
         flex: 1 1 20em;
     }
+
+    /* 横に広げたスポンサー枠は、時刻の横にタイトル、次の行に登壇者とタグを並べる。
+       時刻はタイトルの 1 行目にそろえる */
+    .timetable-item-wide.timetable-item-sponsor .timetable-item-meta {
+        flex: 0 0 7rem;
+        align-self: baseline;
+    }
+
+    .timetable-item-wide.timetable-item-sponsor .timetable-item-title {
+        flex: 1 1 calc(100% - 7rem - 1.25rem);
+        min-width: 0;
+        align-self: baseline;
+    }
 }
 
 /* ==========================================
