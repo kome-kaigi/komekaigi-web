@@ -1,0 +1,39 @@
+{
+  "staff": [
+    {
+      "name": "a_skua",
+      "image": "assets/images/staff/a_skua.jpg",
+      "url": "https://x.com/a_skua"
+    },
+    {
+      "name": "yukyu2nd",
+      "image": "assets/images/staff/yukyu2nd.jpg",
+      "url": "https://x.com/yukyu2nd"
+    },
+    {
+      "name": "gabu",
+      "image": "assets/images/staff/gabu.jpg",
+      "url": "https://x.com/gabu"
+    },
+    {
+      "name": "kasacchiful",
+      "image": "assets/images/staff/kasacchiful.jpg",
+      "url": "https://x.com/kasacchiful"
+    },
+    {
+      "name": "hacusk",
+      "image": "assets/images/staff/hacusk.jpg",
+      "url": "https://x.com/hacusk"
+    },
+    {
+      "name": "YuyaCoding",
+      "image": "assets/images/staff/YuyaCoding.jpg",
+      "url": "https://x.com/YuyaCoding"
+    },
+    {
+      "name": "girigiribauer",
+      "image": "assets/images/staff/girigiribauer.jpg",
+      "url": "https://x.com/girigiribauer"
+    }
+  ]
+}

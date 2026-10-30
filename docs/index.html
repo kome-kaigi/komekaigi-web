@@ -36,7 +36,7 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Merriweather:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap"
           rel="stylesheet"/>
 
-    <link rel="stylesheet" href="css/teaser.css?v=3d6126b5"/>
+    <link rel="stylesheet" href="css/teaser.css?v=39fc806d"/>
 </head>
 <body>
     <!-- Header -->
@@ -96,6 +96,12 @@
                 <li data-sponsors-menu hidden>
                     <a href="#sponsors" data-menu-anchor>
                         <span>Sponsors</span>
+                        <span class="site-menu-arrow" aria-hidden="true">↓</span>
+                    </a>
+                </li>
+                <li data-staff-menu hidden>
+                    <a href="#staff" data-menu-anchor>
+                        <span>Staff</span>
                         <span class="site-menu-arrow" aria-hidden="true">↓</span>
                     </a>
                 </li>
@@ -322,6 +328,18 @@
         </div>
     </section>
 
+    <!-- Staff (data/staff.json から js/staff.js で描画。スプレッドシートで募った協力スタッフを X アイコン+名前で紹介する) -->
+    <section id="staff" class="staff" aria-labelledby="staff-heading" hidden>
+        <div class="staff-inner">
+            <h2 id="staff-heading" class="staff-eyebrow">
+                <span class="staff-eyebrow-rule" aria-hidden="true"></span>
+                <span>STAFF</span>
+            </h2>
+
+            <div class="staff-list"></div>
+        </div>
+    </section>
+
     <!-- Partner (スポンサーではなく、相互にサイトへロゴを掲載し合う連携イベント) -->
     <section id="partner" class="partner" aria-labelledby="partner-heading">
         <div class="partner-inner">
@@ -354,5 +372,6 @@
     <script src="js/speakers.js?v=a2d2f5fd" defer></script>
     <script src="js/timetable.js?v=a2247946" defer></script>
     <script src="js/sponsors.js?v=91fa7b36" defer></script>
+    <script src="js/staff.js?v=e0328fd7" defer></script>
 </body>
 </html>
