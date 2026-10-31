@@ -387,6 +387,7 @@ a {
 .speakers-eyebrow,
 .timetable-eyebrow,
 .sponsors-eyebrow,
+.staff-eyebrow,
 .partner-eyebrow {
     display: inline-flex;
     align-items: center;
@@ -405,6 +406,7 @@ a {
 .speakers-eyebrow-rule,
 .timetable-eyebrow-rule,
 .sponsors-eyebrow-rule,
+.staff-eyebrow-rule,
 .partner-eyebrow-rule {
     display: inline-block;
     width: clamp(36px, 6vw, 60px);
@@ -1411,6 +1413,89 @@ button:focus-visible {
     outline: 2px solid var(--color-primary-dark);
     outline-offset: 3px;
     border-radius: 2px;
+}
+
+/* ==========================================
+   Staff
+   スプレッドシートで募った協力スタッフを X アイコン+名前で紹介する
+   ========================================== */
+.staff {
+    position: relative;
+    z-index: 1;
+    padding: clamp(3.5rem, 8vw, 5.5rem) clamp(1.5rem, 5vw, 3rem);
+    border-top: 1px solid var(--color-line);
+    background: var(--color-paper);
+}
+
+.staff-inner {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.staff-eyebrow {
+    margin-bottom: 1.25rem;
+}
+
+.staff-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+    gap: 1.75rem 1rem;
+}
+
+.staff-person {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+}
+
+.staff-media {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--color-paper-soft);
+    box-shadow: 0 0 0 2px var(--color-paper), 0 0 0 3px var(--color-line);
+    transition: box-shadow 0.2s ease;
+}
+
+.staff-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+a.staff-person:hover .staff-media {
+    box-shadow: 0 0 0 2px var(--color-paper), 0 0 0 4px var(--color-primary);
+}
+
+.staff-name {
+    max-width: 100%;
+    margin-top: 0.75rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+    line-height: 1.45;
+    text-align: center;
+    overflow-wrap: anywhere;
+    color: var(--color-ink);
+    transition: color 0.2s ease;
+}
+
+a.staff-person:hover .staff-name {
+    color: var(--color-primary-dark);
+}
+
+@media (max-width: 560px) {
+    .staff-list {
+        grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
+        gap: 1.5rem 0.75rem;
+    }
+
+    .staff-media {
+        width: 72px;
+        height: 72px;
+    }
 }
 
 /* ==========================================
